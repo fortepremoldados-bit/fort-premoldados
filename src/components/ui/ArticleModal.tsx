@@ -10,9 +10,10 @@ export const ArticleModal = () => {
   if (!selectedArticle) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setSelectedArticle(null)}></div>
-      <div className="relative bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl flex flex-col animate-in fade-in zoom-in duration-300">
+    <div className="fixed inset-0 z-[100] overflow-y-auto">
+      <div className="flex min-h-full items-center justify-center p-4 sm:p-6">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setSelectedArticle(null)}></div>
+        <div className="relative bg-white w-full max-w-4xl shadow-2xl flex flex-col animate-in fade-in zoom-in duration-300 my-8">
         <button 
           onClick={() => setSelectedArticle(null)}
           className="absolute top-4 right-4 bg-white/80 hover:bg-white text-black p-2 rounded-full z-10 transition-colors shadow-sm"
@@ -57,6 +58,7 @@ export const ArticleModal = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

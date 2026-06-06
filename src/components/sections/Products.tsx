@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { CheckCircle2, ChevronRight } from 'lucide-react';
+import { CheckCircle2, ChevronRight, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { BrandConfig } from '../../constants/data';
 
@@ -34,7 +34,7 @@ export const Products = () => {
           >
             <div className="h-64 overflow-hidden relative">
               <img 
-                src="https://images.unsplash.com/photo-1621644788102-140b9914757e?auto=format&fit=crop&q=80&w=800" 
+                src="/imgpiso.jpeg" 
                 alt="Pisos Intertravados" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
@@ -62,7 +62,7 @@ export const Products = () => {
                 </li>
               </ul>
               <a href={BrandConfig.whatsapp.url} target="_blank" rel="noopener noreferrer" className="text-black font-bold uppercase tracking-wide flex items-center gap-2 hover:text-[#008446] transition-colors">
-                Cotar volume <ChevronRight size={20} />
+                <MessageCircle size={18} className="text-[#008446]" /> Cotar volume <ChevronRight size={20} />
               </a>
             </div>
           </motion.div>
@@ -76,8 +76,8 @@ export const Products = () => {
           >
             <div className="h-64 overflow-hidden relative">
               <img 
-                src="https://images.unsplash.com/photo-1590487988256-9ed24133863e?auto=format&fit=crop&q=80&w=800" 
-                alt="Meio-Fio de Concreto" 
+                src="/meiofio.jpeg" 
+                alt="Meio Fio de Concreto" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale-[30%]"
               />
               <div className="absolute top-4 left-4 bg-[#788785] text-white text-xs font-bold px-3 py-1 uppercase tracking-wider">
@@ -104,7 +104,7 @@ export const Products = () => {
                 </li>
               </ul>
               <a href={BrandConfig.whatsapp.url} target="_blank" rel="noopener noreferrer" className="text-black font-bold uppercase tracking-wide flex items-center gap-2 hover:text-[#008446] transition-colors">
-                Cotar volume <ChevronRight size={20} />
+                <MessageCircle size={18} className="text-[#008446]" /> Cotar volume <ChevronRight size={20} />
               </a>
             </div>
           </motion.div>
