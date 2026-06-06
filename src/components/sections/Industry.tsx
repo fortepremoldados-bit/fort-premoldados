@@ -54,7 +54,7 @@ export const Industry = () => {
             <motion.img 
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.8 }}
-              src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1000" 
+              src="/qualidade.jpeg" 
               alt="Maquinário e produção industrial de pré-moldados" 
               className="w-full h-full object-cover object-center"
             />
