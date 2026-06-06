@@ -24,42 +24,42 @@ export const PISOS_DATA: Record<string, PisoData> = {
     dimensoes: '10 x 20 cm',
     pecasPorM2: 50,
     aplicacao: 'O formato mais versátil. Ideal para calçadas, praças e vias comerciais.',
-    imagem: 'https://images.unsplash.com/photo-1603522967167-2d12e8c2810f?auto=format&fit=crop&q=80&w=400'
+    imagem: '/pisos/retangular.jpeg'
   },
   'onda': {
     nome: 'Onda (16 Faces)',
     dimensoes: '11 x 22 cm',
     pecasPorM2: 45, 
     aplicacao: 'Excelente intertravamento. Para locais com frenagem e aceleração (rampas, terminais).',
-    imagem: 'https://images.unsplash.com/photo-1542456485-bd35dcc70624?auto=format&fit=crop&q=80&w=400'
+    imagem: '/pisos/onda.jpeg'
   },
   'sextavado': {
     nome: 'Sextavado (Hexagonal)',
     dimensoes: '25 x 25 cm',
     pecasPorM2: 16,
     aplicacao: 'Distribui cargas uniformemente. Muito utilizado em pátios e postos de combustível.',
-    imagem: 'https://images.unsplash.com/photo-1518098268026-4e89f1a2cd8e?auto=format&fit=crop&q=80&w=400'
+    imagem: '/pisos/sextavado.jpeg'
   },
   'pisograma': {
     nome: 'Pisograma (Ecológico)',
     dimensoes: '40 x 60 cm',
     pecasPorM2: 4.1,
     aplicacao: 'Permeável e sustentável. Perfeito para estacionamentos verdes e jardins.',
-    imagem: 'https://images.unsplash.com/photo-1596404764440-272cb250dbdf?auto=format&fit=crop&q=80&w=400'
+    imagem: '/pisos/pisograma.jpeg'
   },
   'raquete': {
     nome: 'Raquete (Tipo "I")',
     dimensoes: '11 x 22 cm',
     pecasPorM2: 42,
     aplicacao: 'Ótimo travamento. Comum em áreas de calçamento urbano e parques.',
-    imagem: 'https://images.unsplash.com/photo-1587135948950-c8f35dd9a2a7?auto=format&fit=crop&q=80&w=400'
+    imagem: '/pisos/raquete.jpeg'
   },
   'tatil': {
     nome: 'Piso Tátil (Alerta/Direcional)',
     dimensoes: '20 x 20 cm',
     pecasPorM2: 25,
     aplicacao: 'Piso de acessibilidade (NBR 9050). Para orientação de pessoas com deficiência visual.',
-    imagem: 'https://images.unsplash.com/photo-1616422285623-14df63738096?auto=format&fit=crop&q=80&w=400'
+    imagem: '/pisos/tatil.jpeg'
   }
 };
 
