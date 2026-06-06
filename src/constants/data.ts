@@ -78,7 +78,7 @@ export const ARTICLES: Article[] = [
     ]
   },
   {
-    image: "https://images.unsplash.com/photo-1541888086425-d81bb19240f5?auto=format&fit=crop&q=80&w=600",
+    image: "/artigolateral.jpg",
     category: "Planejamento",
     categoryBg: "bg-[#788785]",
     title: "Contenção Lateral e Meio-Fio de Concreto no Travamento de Pisos",
