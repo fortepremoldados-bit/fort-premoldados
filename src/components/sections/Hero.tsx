@@ -69,18 +69,27 @@ export const Hero = () => {
         </div>
       </section>
       
-      <section className="bg-[#008446] py-8 md:py-12 border-b-4 border-[#005e32]">
+      <section className="relative py-12 md:py-16 border-b-4 border-[#005e32] overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/img1.jpeg" 
+            alt="Infraestrutura" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.8 }}
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight mb-4">
+          <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight mb-4 drop-shadow-lg">
             A base sólida da sua obra.
           </h2>
-          <p className="text-xl md:text-2xl text-white/90 font-medium max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-white/95 font-medium max-w-2xl mx-auto drop-shadow-md">
             Qualidade, resistência estrutural e compromisso inegociável com o seu prazo.
           </p>
         </motion.div>
