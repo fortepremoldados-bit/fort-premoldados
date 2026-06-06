@@ -21,121 +21,73 @@ export const Audience = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Card 1 */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-            className="bg-white p-8 lg:p-10 border border-gray-100 border-l-4 border-l-[#008446] shadow-sm hover:shadow-xl transition-shadow group"
+            transition={{ duration: 0.5 }}
+            className="bg-white p-6 border border-gray-100 border-t-4 border-t-[#008446] shadow-sm hover:shadow-md transition-all group flex flex-col items-center text-center"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="bg-[#008446]/10 p-3 rounded text-[#008446] group-hover:scale-110 transition-transform">
-                <Landmark size={32} />
-              </div>
-              <h3 className="text-2xl font-black text-black uppercase">Setor Público</h3>
+            <div className="bg-[#008446]/10 p-4 rounded-full text-[#008446] group-hover:scale-110 transition-transform mb-4">
+              <Landmark size={28} />
             </div>
-            <p className="text-gray-600 mb-8 min-h-[48px]">
-              Atendimento estrito a memoriais descritivos e editais para revitalização urbana, calçadas e infraestrutura municipal.
+            <h3 className="text-lg font-black text-black uppercase mb-3">Setor Público</h3>
+            <p className="text-gray-600 text-sm">
+              Obras de infraestrutura municipal, praças, calçadões e vias urbanas.
             </p>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2 font-bold text-sm text-black">
-                <span className="w-1.5 h-1.5 bg-[#008446] rounded-full"></span> Praças e Calçadões
-              </li>
-              <li className="flex items-center gap-2 font-bold text-sm text-black">
-                <span className="w-1.5 h-1.5 bg-[#008446] rounded-full"></span> Revitalização de Vias Urbanas
-              </li>
-              <li className="flex items-center gap-2 font-bold text-sm text-black">
-                <span className="w-1.5 h-1.5 bg-[#008446] rounded-full"></span> Obras de Acessibilidade (Piso Tátil)
-              </li>
-            </ul>
           </motion.div>
 
+          {/* Card 2 */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-white p-8 lg:p-10 border border-gray-100 border-l-4 border-l-[#008446] shadow-sm hover:shadow-xl transition-shadow group"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-white p-6 border border-gray-100 border-t-4 border-t-[#008446] shadow-sm hover:shadow-md transition-all group flex flex-col items-center text-center"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="bg-[#008446]/10 p-3 rounded text-[#008446] group-hover:scale-110 transition-transform">
-                <HardHat size={32} />
-              </div>
-              <h3 className="text-2xl font-black text-black uppercase">Construtoras</h3>
+            <div className="bg-[#008446]/10 p-4 rounded-full text-[#008446] group-hover:scale-110 transition-transform mb-4">
+              <HardHat size={28} />
             </div>
-            <p className="text-gray-600 mb-8 min-h-[48px]">
-              Fornecimento ininterrupto para loteamentos e grandes obras. Garantimos que a falta de material não paralise seu cronograma.
+            <h3 className="text-lg font-black text-black uppercase mb-3">Construtoras</h3>
+            <p className="text-gray-600 text-sm">
+              Fornecimento ininterrupto para loteamentos e empreendimentos viários.
             </p>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2 font-bold text-sm text-black">
-                <span className="w-1.5 h-1.5 bg-[#008446] rounded-full"></span> Loteamentos e Bairros Planejados
-              </li>
-              <li className="flex items-center gap-2 font-bold text-sm text-black">
-                <span className="w-1.5 h-1.5 bg-[#008446] rounded-full"></span> Infraestrutura Viária e Saneamento
-              </li>
-              <li className="flex items-center gap-2 font-bold text-sm text-black">
-                <span className="w-1.5 h-1.5 bg-[#008446] rounded-full"></span> Parcerias de Longo Prazo (B2B)
-              </li>
-            </ul>
           </motion.div>
 
+          {/* Card 3 */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white p-8 lg:p-10 border border-gray-100 border-l-4 border-l-[#008446] shadow-sm hover:shadow-xl transition-shadow group"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-white p-6 border border-gray-100 border-t-4 border-t-[#008446] shadow-sm hover:shadow-md transition-all group flex flex-col items-center text-center"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="bg-[#008446]/10 p-3 rounded text-[#008446] group-hover:scale-110 transition-transform">
-                <Factory size={32} />
-              </div>
-              <h3 className="text-2xl font-black text-black uppercase">Indústrias</h3>
+            <div className="bg-[#008446]/10 p-4 rounded-full text-[#008446] group-hover:scale-110 transition-transform mb-4">
+              <Factory size={28} />
             </div>
-            <p className="text-gray-600 mb-8 min-h-[48px]">
-              Pisos de altíssima resistência (até 10cm) projetados para suportar tráfego pesado de carretas, empilhadeiras e cargas dinâmicas.
+            <h3 className="text-lg font-black text-black uppercase mb-3">Indústrias</h3>
+            <p className="text-gray-600 text-sm">
+              Pisos de altíssima resistência para pátios logísticos e tráfego pesado.
             </p>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2 font-bold text-sm text-black">
-                <span className="w-1.5 h-1.5 bg-[#008446] rounded-full"></span> Pátios Logísticos e Portuários
-              </li>
-              <li className="flex items-center gap-2 font-bold text-sm text-black">
-                <span className="w-1.5 h-1.5 bg-[#008446] rounded-full"></span> Postos de Combustível
-              </li>
-              <li className="flex items-center gap-2 font-bold text-sm text-black">
-                <span className="w-1.5 h-1.5 bg-[#008446] rounded-full"></span> Estacionamentos Comerciais e Shoppings
-              </li>
-            </ul>
           </motion.div>
 
+          {/* Card 4 */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-white p-8 lg:p-10 border border-gray-100 border-l-4 border-l-[#008446] shadow-sm hover:shadow-xl transition-shadow group"
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="bg-white p-6 border border-gray-100 border-t-4 border-t-[#008446] shadow-sm hover:shadow-md transition-all group flex flex-col items-center text-center"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="bg-[#008446]/10 p-3 rounded text-[#008446] group-hover:scale-110 transition-transform">
-                <Home size={32} />
-              </div>
-              <h3 className="text-2xl font-black text-black uppercase">Condomínios</h3>
+            <div className="bg-[#008446]/10 p-4 rounded-full text-[#008446] group-hover:scale-110 transition-transform mb-4">
+              <Home size={28} />
             </div>
-            <p className="text-gray-600 mb-8 min-h-[48px]">
-              Soluções estéticas, duráveis e permeáveis que valorizam o empreendimento, reduzem o calor e facilitam a manutenção subterrânea.
+            <h3 className="text-lg font-black text-black uppercase mb-3">Condomínios</h3>
+            <p className="text-gray-600 text-sm">
+              Soluções estéticas e permeáveis para vias internas e áreas de lazer.
             </p>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2 font-bold text-sm text-black">
-                <span className="w-1.5 h-1.5 bg-[#008446] rounded-full"></span> Vias de Circulação Interna
-              </li>
-              <li className="flex items-center gap-2 font-bold text-sm text-black">
-                <span className="w-1.5 h-1.5 bg-[#008446] rounded-full"></span> Áreas de Lazer e Piscinas
-              </li>
-              <li className="flex items-center gap-2 font-bold text-sm text-black">
-                <span className="w-1.5 h-1.5 bg-[#008446] rounded-full"></span> Calçadas Ecológicas (Pisograma)
-              </li>
-            </ul>
           </motion.div>
         </div>
       </div>

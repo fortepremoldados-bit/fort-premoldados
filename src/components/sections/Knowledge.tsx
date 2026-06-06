@@ -1,13 +1,21 @@
 'use client';
 
-import React from 'react';
-import { BookOpen, ArrowRight } from 'lucide-react';
+import React, { useRef } from 'react';
+import { BookOpen, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ARTICLES } from '../../constants/data';
 import { useUIStore } from '../../store/uiStore';
 
 export const Knowledge = () => {
   const { setSelectedArticle } = useUIStore();
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const scrollCarousel = (direction: 'left' | 'right') => {
+    if (carouselRef.current) {
+      const scrollAmount = direction === 'left' ? -350 : 350; 
+      carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="conhecimento" className="py-24 bg-white border-b border-gray-200">
@@ -32,7 +40,28 @@ export const Knowledge = () => {
           </p>
         </motion.div>
 
-        <div className="flex overflow-x-auto gap-6 pb-8 snap-x" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+        <div className="relative group">
+          <button 
+            onClick={() => scrollCarousel('left')}
+            className="hidden md:flex absolute -left-4 top-[40%] -translate-y-1/2 z-20 w-12 h-12 bg-white border border-gray-200 shadow-xl rounded-full items-center justify-center text-gray-500 hover:text-[#008446] hover:border-[#008446] transition-all opacity-0 group-hover:opacity-100 hover:scale-110"
+            aria-label="Anterior"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          
+          <button 
+            onClick={() => scrollCarousel('right')}
+            className="hidden md:flex absolute -right-4 top-[40%] -translate-y-1/2 z-20 w-12 h-12 bg-white border border-gray-200 shadow-xl rounded-full items-center justify-center text-gray-500 hover:text-[#008446] hover:border-[#008446] transition-all opacity-0 group-hover:opacity-100 hover:scale-110"
+            aria-label="Próximo"
+          >
+            <ChevronRight size={24} />
+          </button>
+
+          <div 
+            ref={carouselRef}
+            className="flex overflow-x-auto gap-6 pb-8 snap-x scroll-smooth" 
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
           {ARTICLES.map((article, index) => (
             <motion.div 
               key={index} 
@@ -62,6 +91,7 @@ export const Knowledge = () => {
               </div>
             </motion.div>
           ))}
+          </div>
         </div>
       </div>
     </section>
