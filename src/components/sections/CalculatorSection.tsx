@@ -150,7 +150,7 @@ export const CalculatorSection = () => {
                 </select>
               </div>
 
-              <button type="submit" className="w-full bg-[#008446] hover:bg-[#1C9C69] text-white font-bold text-lg px-8 py-4 transition-colors uppercase tracking-wide flex justify-center items-center gap-2">
+              <button type="submit" className="w-full bg-[#008446] hover:bg-[#1C9C69] text-white font-bold text-lg px-8 py-4 transition-colors uppercase tracking-wide flex justify-center items-center gap-2 rounded-[5px]">
                 <Calculator size={20} /> Calcular Quantidade Ideal
               </button>
             </form>
@@ -203,7 +203,7 @@ export const CalculatorSection = () => {
                     <button 
                       type="button" 
                       onClick={handleCalcCopy}
-                      className="flex-1 bg-white hover:bg-gray-200 text-black font-bold uppercase text-sm py-3 px-4 transition-colors flex justify-center items-center gap-2"
+                      className="flex-1 bg-white hover:bg-gray-200 text-black font-bold uppercase text-sm py-3 px-4 transition-colors flex justify-center items-center gap-2 rounded-[5px]"
                     >
                       {isCopied ? <Check size={18} className="text-[#008446]"/> : <Copy size={18} />}
                       {isCopied ? 'Resumo Copiado!' : 'Copiar Resumo'}
@@ -211,7 +211,7 @@ export const CalculatorSection = () => {
                     <button 
                       type="button" 
                       onClick={handleCalcReset}
-                      className="bg-transparent border border-gray-500 hover:border-white text-white font-bold uppercase text-sm py-3 px-6 transition-colors flex justify-center items-center gap-2"
+                      className="bg-transparent border border-gray-500 hover:border-white text-white font-bold uppercase text-sm py-3 px-6 transition-colors flex justify-center items-center gap-2 rounded-[5px]"
                     >
                       <RotateCcw size={18} /> Novo Cálculo
                     </button>

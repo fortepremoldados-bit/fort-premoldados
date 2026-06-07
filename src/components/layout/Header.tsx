@@ -64,7 +64,7 @@ export const Header = () => {
             href={BrandConfig.whatsapp.url} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="bg-[#008446] hover:bg-[#1C9C69] text-white px-5 lg:px-6 py-2.5 flex items-center gap-2 transition-colors font-bold"
+            className="bg-[#008446] hover:bg-[#1C9C69] text-white px-5 lg:px-6 py-2.5 flex items-center gap-2 transition-colors font-bold rounded-[5px]"
           >
             Fale Conosco
           </a>
@@ -89,7 +89,7 @@ export const Header = () => {
             href={BrandConfig.whatsapp.url} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="bg-[#008446] text-white text-center py-3 mt-2 font-bold"
+            className="bg-[#008446] text-white text-center py-3 mt-2 font-bold rounded-[5px]"
           >
             Fale com um Consultor
           </a>

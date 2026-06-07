@@ -26,13 +26,13 @@ export const WhatsAppModal = () => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsWhatsAppPopupOpen(false)}
-            className="w-full flex items-center justify-center bg-[#25D366] hover:bg-[#1da851] text-white font-bold py-3 px-4 rounded transition-colors uppercase text-sm tracking-wide shadow-md"
+            className="w-full flex items-center justify-center bg-[#25D366] hover:bg-[#1da851] text-white font-bold py-3 px-4 rounded-[5px] transition-colors uppercase text-sm tracking-wide shadow-md"
           >
             Abrir WhatsApp
           </a>
           <button
             onClick={() => setIsWhatsAppPopupOpen(false)}
-            className="w-full flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 px-4 rounded transition-colors uppercase text-sm tracking-wide"
+            className="w-full flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 px-4 rounded-[5px] transition-colors uppercase text-sm tracking-wide"
           >
             Cancelar
           </button>

@@ -54,13 +54,13 @@ export const Hero = () => {
                 href={BrandConfig.whatsapp.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-[#008446] hover:bg-[#1C9C69] text-white font-bold text-lg px-8 py-4 flex items-center justify-center gap-3 transition-all transform hover:scale-105 active:scale-95"
+                className="bg-[#008446] hover:bg-[#1C9C69] text-white font-bold text-lg px-8 py-4 flex items-center justify-center gap-3 transition-all transform hover:scale-105 active:scale-95 rounded-[5px]"
               >
                 Solicitar Orçamento <ArrowRight size={20} />
               </a>
               <button 
                 onClick={() => scrollTo('produtos')}
-                className="bg-transparent hover:bg-white/10 border-2 border-white text-white font-bold text-lg px-8 py-4 transition-all uppercase tracking-wide"
+                className="bg-transparent hover:bg-white/10 border-2 border-white text-white font-bold text-lg px-8 py-4 transition-all uppercase tracking-wide rounded-[5px]"
               >
                 Conhecer Produtos
               </button>
