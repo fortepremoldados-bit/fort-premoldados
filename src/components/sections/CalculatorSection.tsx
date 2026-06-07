@@ -34,7 +34,7 @@ export const CalculatorSection = () => {
                     <div 
                       key={key}
                       onClick={() => setCalcData({...calcData, tipo: key})}
-                      className={`cursor-pointer border-2 overflow-hidden transition-all duration-200 relative group rounded-[8px] ${calcData.tipo === key ? 'border-[#008446] shadow-md' : 'border-gray-200 hover:border-[#008446]/50'}`}
+                      className={`cursor-pointer border-2 overflow-hidden transition-all duration-200 relative group rounded-[10px] ${calcData.tipo === key ? 'border-[#008446] shadow-md' : 'border-gray-200 hover:border-[#008446]/50'}`}
                     >
                       <div className="h-24 w-full relative overflow-hidden">
                         <img 
@@ -61,7 +61,7 @@ export const CalculatorSection = () => {
               </div>
 
               {calcData.tipo && (
-                <div className="bg-gray-50 border border-[#008446]/30 p-4 animate-in fade-in duration-300 flex items-start gap-3 rounded-sm">
+                <div className="bg-gray-50 border border-[#008446]/30 p-4 animate-in fade-in duration-300 flex items-start gap-3 rounded-[10px]">
                   <Info className="text-[#008446] shrink-0 mt-0.5" size={20} />
                   <div className="text-sm">
                     <p className="font-bold text-black mb-1">
@@ -150,7 +150,7 @@ export const CalculatorSection = () => {
                 </select>
               </div>
 
-              <button type="submit" className="w-full bg-[#008446] hover:bg-[#1C9C69] text-white font-bold text-lg px-8 py-4 transition-colors uppercase tracking-wide flex justify-center items-center gap-2 rounded-[8px]">
+              <button type="submit" className="w-full bg-[#008446] hover:bg-[#1C9C69] text-white font-bold text-lg px-8 py-4 transition-colors uppercase tracking-wide flex justify-center items-center gap-2 rounded-[10px]">
                 <Calculator size={20} /> Calcular Quantidade Ideal
               </button>
             </form>
@@ -203,7 +203,7 @@ export const CalculatorSection = () => {
                     <button 
                       type="button" 
                       onClick={handleCalcCopy}
-                      className="flex-1 bg-white hover:bg-gray-200 text-black font-bold uppercase text-sm py-3 px-4 transition-colors flex justify-center items-center gap-2 rounded-[8px]"
+                      className="flex-1 bg-white hover:bg-gray-200 text-black font-bold uppercase text-sm py-3 px-4 transition-colors flex justify-center items-center gap-2 rounded-[10px]"
                     >
                       {isCopied ? <Check size={18} className="text-[#008446]"/> : <Copy size={18} />}
                       {isCopied ? 'Resumo Copiado!' : 'Copiar Resumo'}
@@ -211,7 +211,7 @@ export const CalculatorSection = () => {
                     <button 
                       type="button" 
                       onClick={handleCalcReset}
-                      className="bg-transparent border border-gray-500 hover:border-white text-white font-bold uppercase text-sm py-3 px-6 transition-colors flex justify-center items-center gap-2 rounded-[8px]"
+                      className="bg-transparent border border-gray-500 hover:border-white text-white font-bold uppercase text-sm py-3 px-6 transition-colors flex justify-center items-center gap-2 rounded-[10px]"
                     >
                       <RotateCcw size={18} /> Novo Cálculo
                     </button>
@@ -225,4 +225,5 @@ export const CalculatorSection = () => {
     </section>
   );
 };
+
 

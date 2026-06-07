@@ -33,7 +33,7 @@ export const Contact = () => {
 
               <div className="space-y-8">
                 <div className="flex items-start gap-4">
-                  <div className="bg-white/20 p-3 rounded-sm shrink-0">
+                  <div className="bg-white/20 p-3 rounded-[10px] shrink-0">
                     <MapPin className="text-white" size={24} />
                   </div>
                   <div>
@@ -42,7 +42,7 @@ export const Contact = () => {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="bg-white/20 p-3 rounded-sm shrink-0">
+                  <div className="bg-white/20 p-3 rounded-[10px] shrink-0">
                     <Phone className="text-white" size={24} />
                   </div>
                   <div>
@@ -53,7 +53,7 @@ export const Contact = () => {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="bg-white/20 p-3 rounded-sm shrink-0">
+                  <div className="bg-white/20 p-3 rounded-[10px] shrink-0">
                     <Mail className="text-white" size={24} />
                   </div>
                   <div>
@@ -100,7 +100,7 @@ export const Contact = () => {
                 <label className="block text-sm font-bold text-gray-700 uppercase mb-2">Volume Estimado em m² / Detalhes do Projeto</label>
                 <textarea name="detalhes" rows={4} className="w-full bg-gray-50 border border-gray-200 p-3.5 focus:outline-none focus:border-[#008446] focus:ring-1 focus:ring-[#008446] resize-none transition-all" placeholder="Ex: Necessito de 1.500m² de piso para pavimentação."></textarea>
               </div>
-              <button type="submit" className="w-full bg-black hover:bg-[#008446] text-white font-bold text-lg px-8 py-4 transition-colors uppercase tracking-wide mt-4 flex items-center justify-center gap-2 rounded-[8px]">
+              <button type="submit" className="w-full bg-black hover:bg-[#008446] text-white font-bold text-lg px-8 py-4 transition-colors uppercase tracking-wide mt-4 flex items-center justify-center gap-2 rounded-[10px]">
                 <Mail size={20} /> Enviar Pedido por E-mail
               </button>
               <p className="text-xs text-gray-400 text-center mt-3 font-medium">
@@ -113,4 +113,5 @@ export const Contact = () => {
     </section>
   );
 };
+
 

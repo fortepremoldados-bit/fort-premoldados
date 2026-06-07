@@ -73,13 +73,13 @@ export const PISOS_DATA: Record<string, PisoData> = {
     pecasPorUnidade: 1,
     unidade: 'm',
     aplicacao: 'Contenção lateral para pavimentos e delimitação de vias e calçadas.',
-    imagem: '/meiofio.jpeg'
+    imagem: '/meiofio2.png'
   }
 };
 
 export const ARTICLES: Article[] = [
   {
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=600",
+    image: "/artigoA.jpeg",
     category: "Técnica",
     categoryBg: "bg-[#008446]",
     title: "Colchão de Areia para Piso Intertravado: Guia e Espessura Ideal",

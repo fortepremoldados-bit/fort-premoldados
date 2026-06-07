@@ -23,10 +23,10 @@ export const Differentials = () => {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-black text-black uppercase max-w-2xl leading-tight">
+          <h2 className="text-4xl md:text-5xl font-black text-black uppercase max-w-none leading-tight md:whitespace-nowrap">
             A certeza que sustenta sua obra.
           </h2>
-          <p className="text-gray-600 mt-4 text-lg max-w-xl">
+          <p className="text-black font-bold mt-4 text-xl md:text-2xl max-w-none lg:whitespace-nowrap">
             Não vendemos apenas concreto. Entregamos a engenharia necessária para que seu pavimento dure décadas sem manutenção.
           </p>
         </motion.div>
@@ -39,8 +39,10 @@ export const Differentials = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="bg-white/80 backdrop-blur-sm p-8 border border-gray-200 hover:border-[#008446] transition-colors"
           >
-            <Ruler className="text-[#008446] mb-6" size={40} />
-            <h4 className="text-2xl font-bold text-black uppercase mb-4">Rigor Técnico (ABNT)</h4>
+            <div className="flex items-center gap-4 mb-4">
+              <Ruler className="text-[#008446] shrink-0" size={36} />
+              <h4 className="text-xl lg:text-2xl font-bold text-black uppercase">Rigor Técnico (ABNT)</h4>
+            </div>
             <p className="text-gray-600">
               Controle absoluto no traço do concreto, tempo de cura rigoroso e precisão dimensional impecável das peças.
             </p>
@@ -53,8 +55,10 @@ export const Differentials = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="bg-white/80 backdrop-blur-sm p-8 border border-gray-200 hover:border-[#008446] transition-colors"
           >
-            <Phone className="text-[#008446] mb-6" size={40} />
-            <h4 className="text-2xl font-bold text-black uppercase mb-4">Venda Consultiva</h4>
+            <div className="flex items-center gap-4 mb-4">
+              <Phone className="text-[#008446] shrink-0" size={36} />
+              <h4 className="text-xl lg:text-2xl font-bold text-black uppercase">Venda Consultiva</h4>
+            </div>
             <p className="text-gray-600">
               Análise técnica da sua necessidade real. Ajudamos a garantir o uso da espessura (6, 8 ou 10cm) e formato corretos para o seu tipo de tráfego.
             </p>
@@ -67,8 +71,10 @@ export const Differentials = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="bg-white/80 backdrop-blur-sm p-8 border border-gray-200 hover:border-[#008446] transition-colors"
           >
-            <Clock className="text-[#008446] mb-6" size={40} />
-            <h4 className="text-2xl font-bold text-black uppercase mb-4">Prazo Cumprido</h4>
+            <div className="flex items-center gap-4 mb-4">
+              <Clock className="text-[#008446] shrink-0" size={36} />
+              <h4 className="text-xl lg:text-2xl font-bold text-black uppercase">Prazo Cumprido</h4>
+            </div>
             <p className="text-gray-600">
               Capacidade fabril para grandes volumes aliada a uma logística inteligente, garantindo que o cronograma da sua obra nunca pare.
             </p>
