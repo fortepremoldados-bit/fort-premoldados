@@ -30,7 +30,7 @@ export const Products = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
-            className="bg-white border border-gray-200 shadow-sm hover:shadow-xl transition-shadow group overflow-hidden"
+            className="bg-white border border-gray-200 shadow-sm hover:shadow-xl transition-shadow group overflow-hidden rounded-[8px]"
           >
             <div className="h-64 overflow-hidden relative">
               <img 
@@ -72,7 +72,7 @@ export const Products = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white border border-gray-200 shadow-sm hover:shadow-xl transition-shadow group overflow-hidden"
+            className="bg-white border border-gray-200 shadow-sm hover:shadow-xl transition-shadow group overflow-hidden rounded-[8px]"
           >
             <div className="h-64 overflow-hidden relative">
               <img 
@@ -113,3 +113,4 @@ export const Products = () => {
     </section>
   );
 };
+
