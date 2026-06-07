@@ -22,44 +22,58 @@ export const PISOS_DATA: Record<string, PisoData> = {
   'retangular': {
     nome: 'Retangular (Tijolinho)',
     dimensoes: '10 x 20 cm',
-    pecasPorM2: 50,
+    pecasPorUnidade: 50,
+    unidade: 'm2',
     aplicacao: 'O formato mais versátil. Ideal para calçadas, praças e vias comerciais.',
     imagem: '/pisos/retangular.jpeg'
   },
   'onda': {
     nome: 'Onda (16 Faces)',
     dimensoes: '11 x 22 cm',
-    pecasPorM2: 45, 
+    pecasPorUnidade: 45, 
+    unidade: 'm2',
     aplicacao: 'Excelente intertravamento. Para locais com frenagem e aceleração (rampas, terminais).',
     imagem: '/pisos/onda.jpeg'
   },
   'sextavado': {
     nome: 'Sextavado (Hexagonal)',
     dimensoes: '25 x 25 cm',
-    pecasPorM2: 16,
+    pecasPorUnidade: 16,
+    unidade: 'm2',
     aplicacao: 'Distribui cargas uniformemente. Muito utilizado em pátios e postos de combustível.',
     imagem: '/pisos/sextavado.jpeg'
   },
   'pisograma': {
     nome: 'Pisograma (Ecológico)',
     dimensoes: '40 x 60 cm',
-    pecasPorM2: 4.1,
+    pecasPorUnidade: 4.1,
+    unidade: 'm2',
     aplicacao: 'Permeável e sustentável. Perfeito para estacionamentos verdes e jardins.',
     imagem: '/pisos/pisograma.jpeg'
   },
   'raquete': {
     nome: 'Raquete (Tipo "I")',
     dimensoes: '11 x 22 cm',
-    pecasPorM2: 42,
+    pecasPorUnidade: 42,
+    unidade: 'm2',
     aplicacao: 'Ótimo travamento. Comum em áreas de calçamento urbano e parques.',
     imagem: '/pisos/raquete.jpeg'
   },
   'tatil': {
     nome: 'Piso Tátil (Alerta/Direcional)',
     dimensoes: '20 x 20 cm',
-    pecasPorM2: 25,
+    pecasPorUnidade: 25,
+    unidade: 'm2',
     aplicacao: 'Piso de acessibilidade (NBR 9050). Para orientação de pessoas com deficiência visual.',
     imagem: '/pisos/tatil.jpeg'
+  },
+  'meio-fio': {
+    nome: 'Meio-Fio (Guia Padrão PMSP)',
+    dimensoes: '100 x 30 x 15 cm',
+    pecasPorUnidade: 1,
+    unidade: 'm',
+    aplicacao: 'Contenção lateral para pavimentos e delimitação de vias e calçadas.',
+    imagem: '/meiofio.jpeg'
   }
 };
 

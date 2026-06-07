@@ -21,7 +21,8 @@ export interface BrandConfigType {
 export interface PisoData {
   nome: string;
   dimensoes: string;
-  pecasPorM2: number;
+  pecasPorUnidade: number;
+  unidade?: 'm2' | 'm';
   aplicacao: string;
   imagem: string;
 }

@@ -28,7 +28,7 @@ export const CalculatorSection = () => {
             
             <form onSubmit={handleCalcSubmit} className="space-y-6">
               <div>
-                <label className="block text-sm font-bold text-gray-700 uppercase mb-3">Qual formato de piso será utilizado?</label>
+                <label className="block text-sm font-bold text-gray-700 uppercase mb-3">Qual produto será utilizado?</label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {Object.entries(PISOS_DATA).map(([key, piso]) => (
                     <div 
@@ -68,7 +68,7 @@ export const CalculatorSection = () => {
                       Modelo: <span className="font-normal text-gray-700">{PISOS_DATA[calcData.tipo].nome}</span>
                     </p>
                     <p className="font-bold text-black mb-1">
-                      Dimensão: <span className="font-normal text-gray-700">{PISOS_DATA[calcData.tipo].dimensoes} ({PISOS_DATA[calcData.tipo].pecasPorM2} un/m²)</span>
+                      Dimensão: <span className="font-normal text-gray-700">{PISOS_DATA[calcData.tipo].dimensoes} ({PISOS_DATA[calcData.tipo].pecasPorUnidade} un/{PISOS_DATA[calcData.tipo].unidade === 'm' ? 'm' : 'm²'})</span>
                     </p>
                     <p className="font-bold text-black">
                       Aplicação: <span className="font-normal text-gray-700">{PISOS_DATA[calcData.tipo].aplicacao}</span>
@@ -87,7 +87,7 @@ export const CalculatorSection = () => {
                       onChange={() => setCalcData({...calcData, modo: 'area'})}
                       className="w-4 h-4 text-[#008446] focus:ring-[#008446]" 
                     />
-                    <span className="text-sm font-semibold text-gray-800">Área total já conhecida (m²)</span>
+                    <span className="text-sm font-semibold text-gray-800">{calcData.tipo && PISOS_DATA[calcData.tipo].unidade === 'm' ? 'Metros lineares já conhecidos (m)' : 'Área total já conhecida (m²)'}</span>
                   </label>
                   <label className="flex items-center gap-2 cursor-pointer p-3 border border-gray-200 flex-1 hover:bg-gray-50 transition-colors">
                     <input 
@@ -103,7 +103,7 @@ export const CalculatorSection = () => {
 
               {calcData.modo === 'area' ? (
                 <div className="animate-in fade-in">
-                  <label className="block text-sm font-bold text-gray-700 uppercase mb-2">Área total exata ( sem quebras ) em m²</label>
+                  <label className="block text-sm font-bold text-gray-700 uppercase mb-2">Medida total exata (sem quebras) em {calcData.tipo && PISOS_DATA[calcData.tipo].unidade === 'm' ? 'm' : 'm²'}</label>
                   <input 
                     type="number" step="0.01" min="0.1" required
                     value={calcData.area}
@@ -180,18 +180,18 @@ export const CalculatorSection = () => {
                   <div className="bg-[#4E524F]/40 p-6 border-l-4 border-[#008446]">
                     <p className="text-gray-400 text-sm font-bold uppercase tracking-wide mb-1">Volume de Compra Recomendado</p>
                     <div className="flex items-end gap-2 mb-2">
-                      <span className="text-5xl md:text-6xl font-black text-white">{calcResult.areaCompra}</span>
-                      <span className="text-xl font-bold text-gray-300 mb-2">m²</span>
+                      <span className="text-5xl md:text-6xl font-black text-white">{calcResult.medidaCompra}</span>
+                      <span className="text-xl font-bold text-gray-300 mb-2">{calcResult.unidade}</span>
                     </div>
                     <p className="text-[#1C9C69] font-semibold text-sm">
-                      *Já inclui a margem de recortes definida ({(parseFloat(calcData.margem)*100).toFixed(0)}%). Esta é a metragem que você deve solicitar no orçamento.
+                      *Já inclui a margem de recortes definida ({(parseFloat(calcData.margem)*100).toFixed(0)}%). Esta é a medida que você deve solicitar no orçamento.
                     </p>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-black/50 border border-[#4E524F] p-4">
-                      <p className="text-gray-400 text-xs font-bold uppercase mb-1">Área Exata de Cobertura</p>
-                      <p className="font-bold text-white text-xl">{calcResult.areaExata} m²</p>
+                      <p className="text-gray-400 text-xs font-bold uppercase mb-1">Medida Exata de Cobertura</p>
+                      <p className="font-bold text-white text-xl">{calcResult.medidaExata} {calcResult.unidade}</p>
                     </div>
                     <div className="bg-black/50 border border-[#4E524F] p-4">
                       <p className="text-gray-400 text-xs font-bold uppercase mb-1">Nº Estimado de Peças</p>
