@@ -105,7 +105,7 @@ export const ARTICLES: Article[] = [
     ]
   },
   {
-    image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=600",
+    image: "/artigoc.jpeg",
     category: "Especificações",
     categoryBg: "bg-black",
     title: "Espessura de Piso Intertravado (Paver): 6cm, 8cm ou 10cm?",
