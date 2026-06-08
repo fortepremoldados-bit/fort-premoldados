@@ -17,6 +17,15 @@ export interface CalcResult {
   unidade: string;
 }
 
+export interface SavedItem {
+  id: string;
+  produto: string;
+  detalhesMedida: string;
+  medidaCompra: string;
+  unidade: string;
+  pecas: number;
+}
+
 export function useCalculator() {
   const [calcData, setCalcData] = useState<CalcData>({
     tipo: '',
@@ -28,6 +37,7 @@ export function useCalculator() {
   });
   const [calcResult, setCalcResult] = useState<CalcResult | null>(null);
   const [isCopied, setIsCopied] = useState(false);
+  const [savedItems, setSavedItems] = useState<SavedItem[]>([]);
 
   const handleCalcSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -90,5 +100,51 @@ export function useCalculator() {
     });
   };
 
-  return { calcData, setCalcData, calcResult, isCopied, handleCalcSubmit, handleCalcReset, handleCalcCopy };
+  const handleSaveItem = () => {
+    if (!calcResult || !calcData.tipo) return;
+    
+    const pisoNome = PISOS_DATA[calcData.tipo].nome;
+    const isLinear = calcResult.unidade === 'm';
+    const detalhesMedida = calcData.modo === 'medidas' 
+      ? `Medidas: ${calcData.largura}m x ${calcData.comprimento}m`
+      : `Medida informada: ${calcResult.medidaExata}${calcResult.unidade}`;
+
+    const newItem: SavedItem = {
+      id: Math.random().toString(36).substring(2, 9),
+      produto: pisoNome,
+      detalhesMedida,
+      medidaCompra: calcResult.medidaCompra,
+      unidade: calcResult.unidade,
+      pecas: calcResult.pecas
+    };
+
+    setSavedItems([...savedItems, newItem]);
+    // Reseta o resultado atual para dar feedback de que foi salvo e limpar a tela
+    setCalcResult(null);
+  };
+
+  const handleRemoveItem = (id: string) => {
+    setSavedItems(savedItems.filter(item => item.id !== id));
+  };
+
+  const formatQuoteList = () => {
+    if (savedItems.length === 0) return '';
+    let text = `🏗️ *SOLICITAÇÃO DE ORÇAMENTO* - FORTE Pré-Moldados\n\n*ITENS DO PROJETO:*\n\n`;
+    
+    savedItems.forEach((item, index) => {
+      text += `${index + 1}. *${item.produto}*\n`;
+      text += `   - ${item.detalhesMedida}\n`;
+      text += `   - Volume: ${item.medidaCompra} ${item.unidade}\n`;
+      text += `   - Qtd. Peças: ${item.pecas}\n\n`;
+    });
+    
+    return text;
+  };
+
+  return { 
+    calcData, setCalcData, 
+    calcResult, isCopied, 
+    savedItems, handleSaveItem, handleRemoveItem, formatQuoteList,
+    handleCalcSubmit, handleCalcReset, handleCalcCopy 
+  };
 }

@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${barlow.variable} ${inter.variable}`}>
+    <html lang="pt-BR" className={`scroll-smooth ${barlow.variable} ${inter.variable}`}>
       <body className="font-sans antialiased bg-white text-black">
         <SmoothScrollProvider>
           <Header />

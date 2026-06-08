@@ -25,11 +25,16 @@ export const Hero = () => {
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 10, ease: 'easeOut' }}
-            src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?auto=format&fit=crop&q=80&w=2000" 
+            src="/capa3.jpeg" 
             alt="Obras de infraestrutura com pisos intertravados" 
             className="w-full h-full object-cover object-center opacity-80"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+          <div className="absolute inset-0 opacity-[0.10] pointer-events-none" style={{ 
+            backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Crect x=\'2\' y=\'2\' width=\'16\' height=\'36\' rx=\'2\'/%3E%3Crect x=\'22\' y=\'2\' width=\'16\' height=\'36\' rx=\'2\'/%3E%3Crect x=\'42\' y=\'2\' width=\'36\' height=\'16\' rx=\'2\'/%3E%3Crect x=\'42\' y=\'22\' width=\'36\' height=\'16\' rx=\'2\'/%3E%3Crect x=\'2\' y=\'42\' width=\'36\' height=\'16\' rx=\'2\'/%3E%3Crect x=\'2\' y=\'62\' width=\'36\' height=\'16\' rx=\'2\'/%3E%3Crect x=\'42\' y=\'42\' width=\'16\' height=\'36\' rx=\'2\'/%3E%3Crect x=\'62\' y=\'42\' width=\'16\' height=\'36\' rx=\'2\'/%3E%3C/g%3E%3C/svg%3E")',
+            maskImage: 'linear-gradient(to right, black 0%, transparent 60%)',
+            WebkitMaskImage: 'linear-gradient(to right, black 0%, transparent 60%)'
+          }}></div>
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -37,7 +42,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-3xl"
+            className="max-w-3xl mt-[10vh]"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#4E524F]/50 border border-[#788785] text-white text-sm font-bold uppercase tracking-wider mb-6 backdrop-blur-sm">
               <span className="w-2 h-2 bg-[#008446] rounded-full"></span>
@@ -54,13 +59,13 @@ export const Hero = () => {
                 href={BrandConfig.whatsapp.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-[#008446] hover:bg-[#1C9C69] text-white font-bold text-lg px-8 py-4 flex items-center justify-center gap-3 transition-all transform hover:scale-105 active:scale-95 rounded-[8px]"
+                className="bg-[#008446] hover:bg-[#1C9C69] text-white font-bold text-lg px-8 py-4 flex items-center justify-center gap-3 transition-all transform hover:scale-105 active:scale-95 rounded-[10px]"
               >
                 Solicitar Orçamento <ArrowRight size={20} />
               </a>
               <button 
                 onClick={() => scrollTo('produtos')}
-                className="bg-transparent hover:bg-white/10 border-2 border-white text-white font-bold text-lg px-8 py-4 transition-all uppercase tracking-wide rounded-[8px]"
+                className="bg-transparent hover:bg-white/10 border-2 border-white text-white font-bold text-lg px-8 py-4 transition-all uppercase tracking-wide rounded-[10px]"
               >
                 Conhecer Produtos
               </button>
@@ -71,4 +76,5 @@ export const Hero = () => {
     </>
   );
 };
+
 
