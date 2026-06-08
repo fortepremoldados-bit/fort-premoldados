@@ -1,13 +1,46 @@
 'use client';
 
 import React from 'react';
-import { Calculator, Copy, RotateCcw, Check, Info } from 'lucide-react';
+import { Calculator, Copy, RotateCcw, Check, Info, Save, Trash2, Send, X, Mail, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { PISOS_DATA, BrandConfig } from '../../constants/data';
 import { useCalculator } from '../../hooks/useCalculator';
+import { useUIStore } from '../../store/uiStore';
 
 export const CalculatorSection = () => {
-  const { calcData, setCalcData, calcResult, isCopied, handleCalcSubmit, handleCalcReset, handleCalcCopy } = useCalculator();
+  const { 
+    calcData, setCalcData, 
+    calcResult, isCopied, 
+    savedItems, handleSaveItem, handleRemoveItem, formatQuoteList,
+    handleCalcSubmit, handleCalcReset, handleCalcCopy 
+  } = useCalculator();
+  const { setQuoteDetails } = useUIStore();
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    if (savedItems.length === 1) {
+      setTimeout(() => {
+        // Usa rolagem relativa (scrollBy) em vez de focar no elemento (scrollIntoView) 
+        // para um movimento muito mais suave enquanto o elemento ainda está sendo animado.
+        window.scrollBy({ top: 350, behavior: 'smooth' });
+      }, 300);
+    }
+  }, [savedItems.length]);
+
+  const handleSendEmail = () => {
+    setQuoteDetails(formatQuoteList());
+    setIsModalOpen(false);
+    const element = document.getElementById('contato');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleSendWhatsapp = () => {
+    const text = encodeURIComponent(formatQuoteList());
+    window.open(`https://wa.me/${BrandConfig.whatsapp.number}?text=${text}`, '_blank');
+    setIsModalOpen(false);
+  };
 
   return (
     <section id="calculadora" className="py-24 bg-white relative border-b border-gray-200 overflow-hidden">
@@ -225,18 +258,18 @@ export const CalculatorSection = () => {
                   <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-[#4E524F]">
                     <button 
                       type="button" 
+                      onClick={handleSaveItem}
+                      className="flex-1 bg-[#008446] hover:bg-[#1C9C69] text-white font-bold uppercase text-xs py-3 px-2 transition-colors flex justify-center items-center gap-2 rounded-[10px]"
+                    >
+                      <Save size={16} /> Salvar Item
+                    </button>
+                    <button 
+                      type="button" 
                       onClick={handleCalcCopy}
                       className="flex-1 bg-white hover:bg-gray-200 text-black font-bold uppercase text-xs py-3 px-2 transition-colors flex justify-center items-center gap-2 rounded-[10px]"
                     >
                       {isCopied ? <Check size={16} className="text-[#008446]"/> : <Copy size={16} />}
                       {isCopied ? 'Copiado!' : 'Copiar'}
-                    </button>
-                    <button 
-                      type="button" 
-                      onClick={handleCalcReset}
-                      className="flex-1 bg-transparent border border-gray-500 hover:border-white text-white font-bold uppercase text-xs py-3 px-2 transition-colors flex justify-center items-center gap-2 rounded-[10px]"
-                    >
-                      <RotateCcw size={16} /> Novo
                     </button>
                   </div>
                 </div>
@@ -244,6 +277,79 @@ export const CalculatorSection = () => {
             </div>
           </div>
         </div>
+
+        {savedItems.length > 0 && (
+          <div id="itens-orcamento" className="mt-6 bg-white shadow-2xl border border-gray-200 w-full rounded-[10px] p-6 md:p-10 animate-in fade-in slide-in-from-top-8 duration-700 relative z-10">
+            <h3 className="text-2xl font-black text-black uppercase mb-6 flex items-center gap-3">
+              <Save className="text-[#008446]" size={28} /> Itens do Orçamento
+            </h3>
+            
+            <div className="space-y-4 mb-8">
+              {savedItems.map((item, index) => (
+                <div key={item.id} className="flex flex-col md:flex-row justify-between items-start md:items-center p-4 bg-gray-50 border border-gray-200 rounded-[10px] gap-4">
+                  <div>
+                    <h4 className="font-bold text-black text-lg">{index + 1}. {item.produto}</h4>
+                    <p className="text-sm text-gray-600">{item.detalhesMedida}</p>
+                  </div>
+                  <div className="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end">
+                    <div className="text-right">
+                      <p className="text-xs text-gray-500 font-bold uppercase">Volume Recomendado</p>
+                      <p className="font-black text-[#008446] text-xl">{item.medidaCompra} <span className="text-sm">{item.unidade}</span></p>
+                    </div>
+                    <button 
+                      onClick={() => handleRemoveItem(item.id)}
+                      className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 transition-colors rounded-[5px]"
+                      title="Excluir item"
+                    >
+                      <Trash2 size={20} />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex justify-end border-t border-gray-200 pt-6">
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="bg-black hover:bg-gray-800 text-white font-bold text-sm px-8 py-4 transition-colors uppercase tracking-wide flex justify-center items-center gap-2 rounded-[10px]"
+              >
+                <Send size={18} /> Solicitar Orçamento ({savedItems.length})
+              </button>
+            </div>
+          </div>
+        )}
+
+        {isModalOpen && (
+          <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
+            <div className="bg-white rounded-[10px] shadow-2xl max-w-md w-full p-6 relative animate-in zoom-in-95 duration-200">
+              <button 
+                onClick={() => setIsModalOpen(false)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors"
+              >
+                <X size={24} />
+              </button>
+              
+              <h3 className="text-2xl font-black text-black uppercase mb-2">Enviar Orçamento</h3>
+              <p className="text-gray-600 mb-8 font-medium">Como você deseja enviar sua solicitação para a nossa equipe comercial?</p>
+              
+              <div className="space-y-4">
+                <button 
+                  onClick={handleSendWhatsapp}
+                  className="w-full bg-[#25D366] hover:bg-[#1DA851] text-white font-bold text-lg px-6 py-4 transition-colors flex items-center justify-center gap-3 rounded-[10px]"
+                >
+                  <MessageCircle size={24} /> Pelo WhatsApp
+                </button>
+                
+                <button 
+                  onClick={handleSendEmail}
+                  className="w-full bg-black hover:bg-gray-800 text-white font-bold text-lg px-6 py-4 transition-colors flex items-center justify-center gap-3 rounded-[10px]"
+                >
+                  <Mail size={24} /> Pelo Formulário (E-mail)
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
