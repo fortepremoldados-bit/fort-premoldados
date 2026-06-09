@@ -36,15 +36,17 @@ export function useCalculator() {
     margem: '0.10'
   });
   const [calcResult, setCalcResult] = useState<CalcResult | null>(null);
+  const [calcError, setCalcError] = useState<string | null>(null);
   const [isCopied, setIsCopied] = useState(false);
   const [savedItems, setSavedItems] = useState<SavedItem[]>([]);
 
   const handleCalcSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!calcData.tipo) {
-      alert("Por favor, selecione um produto.");
+      setCalcError("Selecione um produto.");
       return;
     }
+    setCalcError(null);
 
     const piso = PISOS_DATA[calcData.tipo];
     const isLinear = piso.unidade === 'm';
@@ -75,6 +77,7 @@ export function useCalculator() {
   const handleCalcReset = () => {
     setCalcData({ ...calcData, tipo: '', area: '', largura: '', comprimento: '' });
     setCalcResult(null);
+    setCalcError(null);
     setIsCopied(false);
   };
 
@@ -119,8 +122,8 @@ export function useCalculator() {
     };
 
     setSavedItems([...savedItems, newItem]);
-    // Reseta o resultado atual para dar feedback de que foi salvo e limpar a tela
-    setCalcResult(null);
+    // Reseta o formulário inteiro para dar feedback de que foi salvo e limpar a tela
+    handleCalcReset();
   };
 
   const handleRemoveItem = (id: string) => {
@@ -143,7 +146,7 @@ export function useCalculator() {
 
   return { 
     calcData, setCalcData, 
-    calcResult, isCopied, 
+    calcResult, calcError, setCalcError, isCopied, 
     savedItems, handleSaveItem, handleRemoveItem, formatQuoteList,
     handleCalcSubmit, handleCalcReset, handleCalcCopy 
   };

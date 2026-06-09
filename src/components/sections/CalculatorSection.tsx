@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Calculator, Copy, RotateCcw, Check, Info, Save, Trash2, Send, X, Mail, MessageCircle } from 'lucide-react';
+import { Calculator, Copy, RotateCcw, Check, Info, Save, Trash2, Send, X, Mail, MessageCircle, ShoppingCart } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { PISOS_DATA, BrandConfig } from '../../constants/data';
 import { useCalculator } from '../../hooks/useCalculator';
@@ -10,26 +10,28 @@ import { useUIStore } from '../../store/uiStore';
 export const CalculatorSection = () => {
   const { 
     calcData, setCalcData, 
-    calcResult, isCopied, 
+    calcResult, calcError, setCalcError, isCopied, 
     savedItems, handleSaveItem, handleRemoveItem, formatQuoteList,
     handleCalcSubmit, handleCalcReset, handleCalcCopy 
   } = useCalculator();
   const { setQuoteDetails } = useUIStore();
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [showSendOptions, setShowSendOptions] = React.useState(false);
+  const hasScrolledRef = React.useRef(false);
 
   React.useEffect(() => {
-    if (savedItems.length === 1) {
+    if (savedItems.length > 0 && !hasScrolledRef.current) {
       setTimeout(() => {
-        // Usa rolagem relativa (scrollBy) em vez de focar no elemento (scrollIntoView) 
-        // para um movimento muito mais suave enquanto o elemento ainda está sendo animado.
         window.scrollBy({ top: 350, behavior: 'smooth' });
+        hasScrolledRef.current = true;
       }, 300);
+    }
+    if (savedItems.length === 0) {
+      setShowSendOptions(false);
     }
   }, [savedItems.length]);
 
   const handleSendEmail = () => {
     setQuoteDetails(formatQuoteList());
-    setIsModalOpen(false);
     const element = document.getElementById('contato');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -39,7 +41,6 @@ export const CalculatorSection = () => {
   const handleSendWhatsapp = () => {
     const text = encodeURIComponent(formatQuoteList());
     window.open(`https://wa.me/${BrandConfig.whatsapp.number}?text=${text}`, '_blank');
-    setIsModalOpen(false);
   };
 
   return (
@@ -75,7 +76,10 @@ export const CalculatorSection = () => {
                   {Object.entries(PISOS_DATA).map(([key, piso]) => (
                     <div 
                       key={key}
-                      onClick={() => setCalcData({...calcData, tipo: key})}
+                      onClick={() => {
+                        setCalcData({...calcData, tipo: key});
+                        if (calcError) setCalcError(null);
+                      }}
                       className={`cursor-pointer border-2 overflow-hidden transition-all duration-200 relative group rounded-[10px] ${calcData.tipo === key ? 'border-[#008446] shadow-md' : 'border-gray-200 hover:border-[#008446]/50'}`}
                     >
                       <div className="h-20 w-full relative overflow-hidden">
@@ -209,6 +213,13 @@ export const CalculatorSection = () => {
                   </button>
                 </div>
               </div>
+
+              {calcError && (
+                <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-[10px] text-sm font-bold flex items-center justify-center gap-2 animate-in fade-in">
+                  <Info size={20} className="shrink-0" />
+                  <p>{calcError}</p>
+                </div>
+              )}
             </form>
           </div>
 
@@ -218,7 +229,9 @@ export const CalculatorSection = () => {
             }}></div>
 
             <div className="relative z-10">
-              <h3 className="text-xl font-bold text-white uppercase mb-8 border-b-2 border-[#4E524F] pb-2 inline-block">Resumo Estrutural</h3>
+              <div className="text-center w-full">
+                <h3 className="text-xl font-bold text-white uppercase mb-8 border-b-2 border-[#4E524F] pb-2 inline-block">Resumo Estrutural</h3>
+              </div>
               
               {!calcResult ? (
                 <motion.div 
@@ -229,7 +242,7 @@ export const CalculatorSection = () => {
                   className="text-center py-12 px-4 text-gray-400"
                 >
                   <Calculator size={48} className="mx-auto mb-4 opacity-30" />
-                  <p className="text-sm md:text-base">Preencha os dados do projeto ao lado e clique em calcular para visualizar a necessidade de materiais.</p>
+                  <p className="text-sm md:text-base">Preencha os dados do projeto ao lado e clique em calcular.</p>
                 </motion.div>
               ) : (
                 <div className="space-y-6 animate-in fade-in duration-500">
@@ -281,7 +294,7 @@ export const CalculatorSection = () => {
         {savedItems.length > 0 && (
           <div id="itens-orcamento" className="mt-6 bg-white shadow-2xl border border-gray-200 w-full rounded-[10px] p-6 md:p-10 animate-in fade-in slide-in-from-top-8 duration-700 relative z-10">
             <h3 className="text-2xl font-black text-black uppercase mb-6 flex items-center gap-3">
-              <Save className="text-[#008446]" size={28} /> Itens do Orçamento
+              <ShoppingCart className="text-[#008446]" size={28} /> Itens do Orçamento
             </h3>
             
             <div className="space-y-4 mb-8">
@@ -309,44 +322,30 @@ export const CalculatorSection = () => {
             </div>
 
             <div className="flex justify-end border-t border-gray-200 pt-6">
-              <button 
-                onClick={() => setIsModalOpen(true)}
-                className="bg-black hover:bg-gray-800 text-white font-bold text-sm px-8 py-4 transition-colors uppercase tracking-wide flex justify-center items-center gap-2 rounded-[10px]"
-              >
-                <Send size={18} /> Solicitar Orçamento ({savedItems.length})
-              </button>
-            </div>
-          </div>
-        )}
-
-        {isModalOpen && (
-          <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-            <div className="bg-white rounded-[10px] shadow-2xl max-w-md w-full p-6 relative animate-in zoom-in-95 duration-200">
-              <button 
-                onClick={() => setIsModalOpen(false)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors"
-              >
-                <X size={24} />
-              </button>
-              
-              <h3 className="text-2xl font-black text-black uppercase mb-2">Enviar Orçamento</h3>
-              <p className="text-gray-600 mb-8 font-medium">Como você deseja enviar sua solicitação para a nossa equipe comercial?</p>
-              
-              <div className="space-y-4">
+              {!showSendOptions ? (
                 <button 
-                  onClick={handleSendWhatsapp}
-                  className="w-full bg-[#25D366] hover:bg-[#1DA851] text-white font-bold text-lg px-6 py-4 transition-colors flex items-center justify-center gap-3 rounded-[10px]"
+                  onClick={() => setShowSendOptions(true)}
+                  className="bg-black hover:bg-gray-800 text-white font-bold text-sm px-8 py-4 transition-colors uppercase tracking-wide flex justify-center items-center gap-2 rounded-[10px] w-full md:w-auto animate-in fade-in"
                 >
-                  <MessageCircle size={24} /> Pelo WhatsApp
+                  <Send size={18} /> Solicitar Orçamento ({savedItems.length})
                 </button>
-                
-                <button 
-                  onClick={handleSendEmail}
-                  className="w-full bg-black hover:bg-gray-800 text-white font-bold text-lg px-6 py-4 transition-colors flex items-center justify-center gap-3 rounded-[10px]"
-                >
-                  <Mail size={24} /> Pelo Formulário (E-mail)
-                </button>
-              </div>
+              ) : (
+                <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto animate-in slide-in-from-right-8 fade-in duration-300">
+                  <span className="text-sm font-bold text-gray-500 uppercase tracking-wide mr-2 hidden lg:block">Como deseja enviar?</span>
+                  <button 
+                    onClick={handleSendWhatsapp}
+                    className="w-full sm:w-auto bg-[#25D366] hover:bg-[#1DA851] text-white font-bold text-sm px-8 py-4 transition-colors uppercase tracking-wide flex justify-center items-center gap-2 rounded-[10px]"
+                  >
+                    <MessageCircle size={18} /> Por WhatsApp
+                  </button>
+                  <button 
+                    onClick={handleSendEmail}
+                    className="w-full sm:w-auto bg-black hover:bg-gray-800 text-white font-bold text-sm px-8 py-4 transition-colors uppercase tracking-wide flex justify-center items-center gap-2 rounded-[10px]"
+                  >
+                    <Mail size={18} /> Por E-mail
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         )}
