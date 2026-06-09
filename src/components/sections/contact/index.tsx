@@ -53,7 +53,7 @@ export const Contact = () => {
 
               <div className="space-y-8">
                 <div className="flex items-start gap-4">
-                  <div className="bg-[#008446]/10 p-3 rounded-[10px] shrink-0">
+                  <div className="bg-[#008446]/10 p-3 rounded-[8px] shrink-0">
                     <MapPin className="text-[#008446]" size={24} />
                   </div>
                   <div>
@@ -62,7 +62,7 @@ export const Contact = () => {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="bg-[#008446]/10 p-3 rounded-[10px] shrink-0">
+                  <div className="bg-[#008446]/10 p-3 rounded-[8px] shrink-0">
                     <Phone className="text-[#008446]" size={24} />
                   </div>
                   <div>
@@ -73,7 +73,7 @@ export const Contact = () => {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="bg-[#008446]/10 p-3 rounded-[10px] shrink-0">
+                  <div className="bg-[#008446]/10 p-3 rounded-[8px] shrink-0">
                     <Mail className="text-[#008446]" size={24} />
                   </div>
                   <div>
@@ -87,7 +87,7 @@ export const Contact = () => {
             </div>
           </div>
 
-          <div className="lg:w-7/12 p-8 md:p-12 bg-white shadow-2xl border border-gray-200 rounded-[10px] w-full">
+          <div className="lg:w-7/12 p-8 md:p-12 bg-white shadow-2xl border border-gray-200 rounded-[8px] w-full">
             <h3 className="text-2xl font-black text-black uppercase mb-8 flex items-center gap-3">
               <FileText className="text-[#008446]" size={28} /> Solicitar Cotação Formal
             </h3>
@@ -95,17 +95,17 @@ export const Contact = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-gray-700 uppercase mb-2">Nome / Responsável Técnico</label>
-                  <input type="text" name="nome" className="w-full bg-gray-50 border border-gray-200 p-3.5 focus:outline-none focus:border-[#008446] focus:ring-1 focus:ring-[#008446] transition-all rounded-[10px]" required />
+                  <input type="text" name="nome" className="w-full bg-gray-50 border border-gray-200 p-3.5 focus:outline-none focus:border-[#008446] focus:ring-1 focus:ring-[#008446] transition-all rounded-[8px]" required />
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-gray-700 uppercase mb-2">Empresa / Prefeitura</label>
-                  <input type="text" name="empresa" className="w-full bg-gray-50 border border-gray-200 p-3.5 focus:outline-none focus:border-[#008446] focus:ring-1 focus:ring-[#008446] transition-all rounded-[10px]" required />
+                  <input type="text" name="empresa" className="w-full bg-gray-50 border border-gray-200 p-3.5 focus:outline-none focus:border-[#008446] focus:ring-1 focus:ring-[#008446] transition-all rounded-[8px]" required />
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-gray-700 uppercase mb-2">Telefone com DDD</label>
-                  <input type="tel" name="telefone" className="w-full bg-gray-50 border border-gray-200 p-3.5 focus:outline-none focus:border-[#008446] focus:ring-1 focus:ring-[#008446] transition-all rounded-[10px]" placeholder="Ex: (22) 99999-0000" required />
+                  <input type="tel" name="telefone" className="w-full bg-gray-50 border border-gray-200 p-3.5 focus:outline-none focus:border-[#008446] focus:ring-1 focus:ring-[#008446] transition-all rounded-[8px]" placeholder="Ex: (22) 99999-0000" required />
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-gray-700 uppercase mb-2">Produto Principal</label>
@@ -113,7 +113,7 @@ export const Contact = () => {
                     name="produto" 
                     value={produto}
                     onChange={(e) => setProduto(e.target.value)}
-                    className="w-full bg-gray-50 border border-gray-200 p-3.5 focus:outline-none focus:border-[#008446] focus:ring-1 focus:ring-[#008446] transition-all rounded-[10px]"
+                    className="w-full bg-gray-50 border border-gray-200 p-3.5 focus:outline-none focus:border-[#008446] focus:ring-1 focus:ring-[#008446] transition-all rounded-[8px]"
                   >
                     <option value="Piso Intertravado">Piso Intertravado</option>
                     <option value="Meio-Fio / Guia de Contenção">Meio-Fio / Guia de Contenção</option>
@@ -128,11 +128,11 @@ export const Contact = () => {
                   rows={6} 
                   value={detalhes}
                   onChange={(e) => setDetalhes(e.target.value)}
-                  className="w-full bg-gray-50 border border-gray-200 p-3.5 focus:outline-none focus:border-[#008446] focus:ring-1 focus:ring-[#008446] resize-none transition-all rounded-[10px]" 
+                  className="w-full bg-gray-50 border border-gray-200 p-3.5 focus:outline-none focus:border-[#008446] focus:ring-1 focus:ring-[#008446] resize-none transition-all rounded-[8px]" 
                   placeholder="Ex: Necessito de 1.500m² de piso para pavimentação."
                 ></textarea>
               </div>
-              <button type="submit" className="w-full bg-black hover:bg-[#008446] text-white font-bold text-lg px-8 py-4 transition-colors uppercase tracking-wide mt-4 flex items-center justify-center gap-2 rounded-[10px]">
+              <button type="submit" className="w-full bg-black hover:bg-[#008446] text-white font-bold text-lg px-8 py-4 transition-colors uppercase tracking-wide mt-4 flex items-center justify-center gap-2 rounded-[8px]">
                 <Mail size={20} /> Enviar Pedido por E-mail
               </button>
               <p className="text-xs text-gray-400 text-center mt-3 font-medium">

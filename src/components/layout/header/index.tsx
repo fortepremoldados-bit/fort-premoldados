@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Calculator } from 'lucide-react';
 import { useUIStore } from '@/store/uiStore';
 import { BrandConfig } from '@/constants/data';
 
-const Logo = ({ className = "h-10" }: { className?: string }) => (
+const Logo = ({ className = "h-10", isLight = false }: { className?: string, isLight?: boolean }) => (
   <div className={`flex items-center gap-3 ${className}`}>
     <svg viewBox="0 0 100 100" className="h-full w-auto drop-shadow-md">
       <polygon points="30,5 70,5 95,30 95,70 70,95 30,95 5,70 5,30" fill="#000000" />
@@ -17,10 +17,10 @@ const Logo = ({ className = "h-10" }: { className?: string }) => (
       <polygon points="40,60 75,60 75,85 40,85" fill={BrandConfig.colors.product} />
     </svg>
     <div className="flex flex-col justify-center">
-      <span className="font-black text-xl leading-none tracking-tight text-black uppercase" style={{ fontFamily: 'Barlow, sans-serif' }}>
+      <span className={`font-black text-xl leading-none tracking-tight uppercase transition-colors duration-300 ${isLight ? 'text-white' : 'text-black'}`} style={{ fontFamily: 'Barlow, sans-serif' }}>
         Forte
       </span>
-      <span className="font-bold text-xs leading-none tracking-widest text-black uppercase" style={{ fontFamily: 'Barlow, sans-serif' }}>
+      <span className={`font-bold text-xs leading-none tracking-widest uppercase transition-colors duration-300 ${isLight ? 'text-white/80' : 'text-black'}`} style={{ fontFamily: 'Barlow, sans-serif' }}>
         Pré-Moldados
       </span>
     </div>
@@ -46,31 +46,54 @@ export const Header = () => {
   };
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg py-3' : 'bg-white/95 backdrop-blur-sm py-5'}`}>
+    <header className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <button onClick={() => scrollTo('home')} className="hover:opacity-80 transition-opacity">
-          <Logo className="h-10 md:h-12" />
+          <Logo className="h-10 md:h-12" isLight={!isScrolled} />
         </button>
         
-        <nav className="hidden md:flex items-center gap-5 lg:gap-7 font-semibold text-sm tracking-wide uppercase text-gray-800">
-          <button onClick={() => scrollTo('produtos')} className="hover:text-[#008446] transition-colors">Produtos</button>
-          <button onClick={() => scrollTo('diferenciais')} className="hover:text-[#008446] transition-colors">Diferenciais</button>
-          <button onClick={() => scrollTo('sobre')} className="hover:text-[#008446] transition-colors">A Indústria</button>
-          <button onClick={() => scrollTo('atuacao')} className="hover:text-[#008446] transition-colors">Atuação</button>
-          <button onClick={() => scrollTo('calculadora')} className="hover:text-[#008446] transition-colors">Calculadora</button>
-          <button onClick={() => scrollTo('sustentabilidade')} className="hover:text-[#008446] transition-colors">ESG</button>
-          <button onClick={() => scrollTo('conhecimento')} className="hover:text-[#008446] transition-colors">Expertise</button>
-          <a 
-            href={BrandConfig.whatsapp.url} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="bg-[#008446] hover:bg-[#1C9C69] text-white px-5 lg:px-6 py-2.5 flex items-center gap-2 transition-colors font-bold rounded-[10px]"
-          >
-            Fale Conosco
-          </a>
+        <nav className="hidden md:flex items-center gap-5 lg:gap-7 font-semibold text-sm tracking-wide uppercase">
+          {[
+            { id: 'produtos', label: 'Produtos' },
+            { id: 'diferenciais', label: 'Diferenciais' },
+            { id: 'sobre', label: 'A Indústria' },
+            { id: 'atuacao', label: 'Atuação' },
+            { id: 'sustentabilidade', label: 'ESG' },
+            { id: 'conhecimento', label: 'Expertise' },
+          ].map((item) => (
+            <button 
+              key={item.id} 
+              onClick={() => scrollTo(item.id)} 
+              className={`relative group transition-colors duration-300 ${isScrolled ? 'text-gray-800 hover:text-[#008446]' : 'text-white/90 hover:text-white'}`}
+            >
+              <span>{item.label}</span>
+              <span className="absolute -bottom-1.5 left-0 w-full h-[2px] bg-[#008446] transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
+            </button>
+          ))}
+          <div className="flex items-center gap-3 ml-2">
+            <button 
+              onClick={() => scrollTo('calculadora')}
+              className={`px-4 py-2 flex items-center gap-2 transition-all transform hover:scale-105 font-bold rounded-[8px] border ${
+                isScrolled 
+                  ? 'border-[#008446] text-[#008446] hover:bg-[#008446] hover:text-white' 
+                  : 'border-white/50 text-white hover:bg-white hover:text-black'
+              }`}
+            >
+              <Calculator size={18} />
+              Calculadora
+            </button>
+            <a 
+              href={BrandConfig.whatsapp.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-[#008446] hover:bg-[#1C9C69] text-white px-5 lg:px-6 py-2.5 flex items-center gap-2 transition-all transform hover:scale-105 font-bold rounded-[8px] shadow-md"
+            >
+              Fale Conosco
+            </a>
+          </div>
         </nav>
 
-        <button className="md:hidden p-2 text-black" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button className={`md:hidden p-2 transition-colors ${isScrolled ? 'text-black' : 'text-white'}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
@@ -89,7 +112,7 @@ export const Header = () => {
             href={BrandConfig.whatsapp.url} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="bg-[#008446] text-white text-center py-3 mt-2 font-bold rounded-[10px]"
+            className="bg-[#008446] text-white text-center py-3 mt-2 font-bold rounded-[8px]"
           >
             Fale com um Consultor
           </a>

@@ -19,8 +19,8 @@ export const Industry = () => {
             <h3 className="text-[#008446] font-bold tracking-widest uppercase mb-2 flex items-center gap-2">
               <Factory size={20} /> A Indústria Forte
             </h3>
-            <h2 className="text-4xl md:text-5xl font-black text-black uppercase mb-6">
-              Capacidade fabril para sustentar grandes obras
+            <h2 className="text-3xl md:text-5xl font-black text-[#1C201E] uppercase mb-8 leading-tight">
+              Forte para <br /> grandes obras
             </h2>
             <p className="text-gray-600 text-lg mb-6 leading-relaxed">
               Fundada com o propósito de elevar o padrão da infraestrutura viária, a <strong>Forte Pré-Moldados</strong> é uma indústria especializada em soluções de concreto de alto desempenho.
