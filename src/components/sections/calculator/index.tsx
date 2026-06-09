@@ -3,9 +3,9 @@
 import React from 'react';
 import { Calculator, Copy, RotateCcw, Check, Info, Save, Trash2, Send, X, Mail, MessageCircle, ShoppingCart } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { PISOS_DATA, BrandConfig } from '../../constants/data';
-import { useCalculator } from '../../hooks/useCalculator';
-import { useUIStore } from '../../store/uiStore';
+import { PISOS_DATA, BrandConfig } from '../../../constants/data';
+import { useCalculator } from '../../../hooks/useCalculator';
+import { useUIStore } from '../../../store/uiStore';
 
 export const CalculatorSection = () => {
   const { 

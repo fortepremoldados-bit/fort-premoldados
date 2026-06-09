@@ -3,8 +3,8 @@
 import React, { useRef } from 'react';
 import { BookOpen, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { ARTICLES } from '../../constants/data';
-import { useUIStore } from '../../store/uiStore';
+import { ARTICLES } from '../../../constants/data';
+import { useUIStore } from '../../../store/uiStore';
 
 export const Knowledge = () => {
   const { setSelectedArticle } = useUIStore();

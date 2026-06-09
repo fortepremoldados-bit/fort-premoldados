@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { X, Calendar } from 'lucide-react';
-import { useUIStore } from '../../store/uiStore';
+import { useUIStore } from '../../../store/uiStore';
 
 export const ArticleModal = () => {
   const { selectedArticle, setSelectedArticle } = useUIStore();

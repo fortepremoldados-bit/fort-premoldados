@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { useUIStore } from '../../store/uiStore';
-import { BrandConfig } from '../../constants/data';
+import { useUIStore } from '../../../store/uiStore';
+import { BrandConfig } from '../../../constants/data';
 
 export const WhatsAppModal = () => {
   const { isWhatsAppPopupOpen, setIsWhatsAppPopupOpen } = useUIStore();

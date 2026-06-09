@@ -3,7 +3,7 @@
 import React from 'react';
 import { CheckCircle2, ChevronRight, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { BrandConfig } from '../../constants/data';
+import { BrandConfig } from '../../../constants/data';
 
 export const Products = () => {
   return (

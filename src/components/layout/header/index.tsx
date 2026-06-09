@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { Menu, X } from 'lucide-react';
-import { useUIStore } from '../../store/uiStore';
-import { BrandConfig } from '../../constants/data';
+import { useUIStore } from '@/store/uiStore';
+import { BrandConfig } from '@/constants/data';
 
 const Logo = ({ className = "h-10" }: { className?: string }) => (
   <div className={`flex items-center gap-3 ${className}`}>
