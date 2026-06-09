@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useUIStore } from '../../store/uiStore';
+import { useUIStore } from '../../../store/uiStore';
 
 export const FloatingWhatsApp = () => {
   const { setIsWhatsAppPopupOpen } = useUIStore();

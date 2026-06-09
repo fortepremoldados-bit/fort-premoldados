@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PISOS_DATA, BrandConfig } from '../constants/data';
+import { PISOS_DATA, BrandConfig } from '../../constants/data';
 
 interface CalcData {
   tipo: string;

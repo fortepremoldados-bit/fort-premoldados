@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { MapPin, Phone, Mail, FileText } from 'lucide-react';
-import { BrandConfig } from '../../constants/data';
-import { useUIStore } from '../../store/uiStore';
+import { BrandConfig } from '../../../constants/data';
+import { useUIStore } from '../../../store/uiStore';
 
 export const Contact = () => {
   const { quoteDetails, setQuoteDetails } = useUIStore();
