@@ -3,8 +3,8 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { BrandConfig } from '../../../constants/data';
-import { useUIStore } from '../../../store/uiStore';
+import { BrandConfig } from '../../constants/data';
+import { useUIStore } from '../../store/uiStore';
 
 export const Hero = () => {
   const { setIsMobileMenuOpen } = useUIStore();

@@ -2,13 +2,24 @@
 
 import React, { useState, useEffect } from 'react';
 import { MapPin, Phone, Mail, FileText } from 'lucide-react';
-import { BrandConfig } from '../../../constants/data';
-import { useUIStore } from '../../../store/uiStore';
+import { BrandConfig } from '../../constants/data';
+import { useUIStore } from '../../store/uiStore';
 
 export const Contact = () => {
   const { quoteDetails, setQuoteDetails } = useUIStore();
   const [detalhes, setDetalhes] = useState('');
   const [produto, setProduto] = useState('Piso Intertravado');
+
+
+  
+  // useEffect(() => {
+  //   if (quoteDetails) {
+  //     setDetalhes(quoteDetails);
+  //     setProduto('Múltiplos Produtos');
+  //   }
+  // }, [quoteDetails]);
+
+  /* eslint-disable react-hooks/set-state-in-effect */
 
   useEffect(() => {
     if (quoteDetails) {
@@ -16,6 +27,8 @@ export const Contact = () => {
       setProduto('Múltiplos Produtos');
     }
   }, [quoteDetails]);
+
+/* eslint-enable react-hooks/set-state-in-effect */
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
