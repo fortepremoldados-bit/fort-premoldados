@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Barlow, Inter } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
-import { SmoothScrollProvider } from "@/components/layout/scroll";
+import { Footer } from "@/components/footer";
+import { SmoothScrollProvider } from "@/components/scroll";
+import Header from "@/components/header";
 
 
 const barlow = Barlow({ 

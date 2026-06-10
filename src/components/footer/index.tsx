@@ -1,6 +1,6 @@
 import React from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
-import { BrandConfig } from '../../../constants/data';
+import { BrandConfig } from '../../constants/data';
 
 export const Footer = () => (
   <footer className="bg-black pt-20 pb-10 border-t border-[#4E524F]">

@@ -3,7 +3,7 @@
 import React from 'react';
 import { CheckCircle2, ChevronRight, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { BrandConfig } from '../../../constants/data';
+import { BrandConfig } from '../../constants/data';
 
 const ImageCarousel = ({ images, altText, tagText, tagClass = "bg-black" }: { images: string[], altText: string, tagText: string, tagClass?: string }) => {
   const [currentIndex, setCurrentIndex] = React.useState(0);
