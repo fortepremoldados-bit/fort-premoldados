@@ -5,6 +5,44 @@ import { CheckCircle2, ChevronRight, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { BrandConfig } from '../../../constants/data';
 
+const ImageCarousel = ({ images, altText, tagText, tagClass = "bg-black" }: { images: string[], altText: string, tagText: string, tagClass?: string }) => {
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <div className="h-64 overflow-hidden relative group/carousel">
+      <div className="w-full h-full relative group-hover/carousel:scale-105 transition-transform duration-700">
+        {images.map((img, idx) => (
+          <img 
+            key={img}
+            src={img} 
+            alt={`${altText} ${idx + 1}`} 
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${idx === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'} ${altText.includes('Meio') ? 'grayscale-[30%]' : ''}`}
+          />
+        ))}
+      </div>
+      <div className={`absolute top-4 left-4 text-white text-xs font-bold px-3 py-1 uppercase tracking-wider z-20 shadow-md ${tagClass}`}>
+        {tagText}
+      </div>
+      
+      <div className="absolute bottom-4 left-0 w-full flex justify-center gap-1.5 z-20">
+        {images.map((_, idx) => (
+          <div 
+            key={idx} 
+            className={`h-1.5 rounded-full shadow-sm transition-all duration-300 ${idx === currentIndex ? 'w-6 bg-[#008446]' : 'w-2 bg-white/80'}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export const Products = () => {
   return (
     <section id="produtos" className="py-24 bg-white border-b border-gray-200">
@@ -30,18 +68,14 @@ export const Products = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
-            className="bg-white border border-gray-200 shadow-sm hover:shadow-xl transition-shadow group overflow-hidden rounded-[10px]"
+            className="bg-white border border-gray-200 shadow-sm hover:shadow-xl transition-shadow group overflow-hidden rounded-[8px]"
           >
-            <div className="h-64 overflow-hidden relative">
-              <img 
-                src="/imgpiso.jpeg" 
-                alt="Pisos Intertravados" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute top-4 left-4 bg-black text-white text-xs font-bold px-3 py-1 uppercase tracking-wider">
-                Linha de Pavimentação
-              </div>
-            </div>
+            <ImageCarousel 
+              images={['/imgpiso.jpeg', '/capa2.jpeg', '/capa3.jpeg']} 
+              altText="Pisos Intertravados" 
+              tagText="Linha de Pavimentação" 
+              tagClass="bg-black"
+            />
             <div className="p-8">
               <h3 className="text-3xl font-black text-black uppercase mb-4">Pisos Intertravados</h3>
               <p className="text-gray-600 mb-6 text-lg">
@@ -72,18 +106,14 @@ export const Products = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white border border-gray-200 shadow-sm hover:shadow-xl transition-shadow group overflow-hidden rounded-[10px]"
+            className="bg-white border border-gray-200 shadow-sm hover:shadow-xl transition-shadow group overflow-hidden rounded-[8px]"
           >
-            <div className="h-64 overflow-hidden relative">
-              <img 
-                src="/meiofio.jpeg" 
-                alt="Meio Fio de Concreto" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale-[30%]"
-              />
-              <div className="absolute top-4 left-4 bg-[#788785] text-white text-xs font-bold px-3 py-1 uppercase tracking-wider">
-                Linha de Contenção e Drenagem
-              </div>
-            </div>
+            <ImageCarousel 
+              images={['/meiofio.jpeg', '/meiofio2.png']} 
+              altText="Meio Fio de Concreto" 
+              tagText="Linha de Contenção e Drenagem" 
+              tagClass="bg-[#788785]"
+            />
             <div className="p-8">
               <h3 className="text-3xl font-black text-black uppercase mb-4">Meio-Fio (Guias)</h3>
               <p className="text-gray-600 mb-6 text-lg">

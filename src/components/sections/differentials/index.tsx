@@ -21,14 +21,11 @@ export const Differentials = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-8"
         >
           <h2 className="text-4xl md:text-5xl font-black text-black uppercase max-w-none leading-tight md:whitespace-nowrap">
             A certeza que sustenta sua obra.
           </h2>
-          <p className="text-black font-bold mt-4 text-xl md:text-2xl max-w-none lg:whitespace-nowrap">
-            Não vendemos apenas concreto. Entregamos a engenharia necessária para que seu pavimento dure décadas sem manutenção.
-          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

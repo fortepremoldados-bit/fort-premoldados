@@ -69,7 +69,7 @@ export const Knowledge = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="min-w-[320px] md:min-w-[400px] bg-white border border-gray-200 hover:shadow-xl transition-shadow group cursor-pointer snap-start flex flex-col rounded-[10px]"
+              className="min-w-[320px] md:min-w-[400px] bg-white border border-gray-200 hover:shadow-xl transition-shadow group cursor-pointer snap-start flex flex-col rounded-[8px]"
               onClick={() => setSelectedArticle(article)}
             >
               <div className="h-48 overflow-hidden relative">

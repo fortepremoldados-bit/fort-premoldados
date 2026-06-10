@@ -21,14 +21,16 @@ export const Hero = () => {
     <>
       <section id="home" className="relative pt-32 pb-20 md:pt-48 md:pb-32 bg-black overflow-hidden flex items-center min-h-[90vh]">
         <div className="absolute inset-0 z-0">
-          <motion.img 
-            initial={{ scale: 1.1 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 10, ease: 'easeOut' }}
-            src="/capa3.jpeg" 
-            alt="Obras de infraestrutura com pisos intertravados" 
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            poster="/capa3.jpeg" 
             className="w-full h-full object-cover object-center opacity-80"
-          />
+          >
+            <source src="/video-capa.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
           <div className="absolute inset-0 opacity-[0.10] pointer-events-none" style={{ 
             backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Crect x=\'2\' y=\'2\' width=\'16\' height=\'36\' rx=\'2\'/%3E%3Crect x=\'22\' y=\'2\' width=\'16\' height=\'36\' rx=\'2\'/%3E%3Crect x=\'42\' y=\'2\' width=\'36\' height=\'16\' rx=\'2\'/%3E%3Crect x=\'42\' y=\'22\' width=\'36\' height=\'16\' rx=\'2\'/%3E%3Crect x=\'2\' y=\'42\' width=\'36\' height=\'16\' rx=\'2\'/%3E%3Crect x=\'2\' y=\'62\' width=\'36\' height=\'16\' rx=\'2\'/%3E%3Crect x=\'42\' y=\'42\' width=\'16\' height=\'36\' rx=\'2\'/%3E%3Crect x=\'62\' y=\'42\' width=\'16\' height=\'36\' rx=\'2\'/%3E%3C/g%3E%3C/svg%3E")',
@@ -59,13 +61,13 @@ export const Hero = () => {
                 href={BrandConfig.whatsapp.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-[#008446] hover:bg-[#1C9C69] text-white font-bold text-lg px-8 py-4 flex items-center justify-center gap-3 transition-all transform hover:scale-105 active:scale-95 rounded-[10px]"
+                className="bg-[#008446] hover:bg-[#1C9C69] text-white font-bold text-lg px-8 py-4 flex items-center justify-center gap-3 transition-all transform hover:scale-105 active:scale-95 rounded-[8px]"
               >
                 Solicitar Orçamento <ArrowRight size={20} />
               </a>
               <button 
                 onClick={() => scrollTo('produtos')}
-                className="bg-transparent hover:bg-white/10 border-2 border-white text-white font-bold text-lg px-8 py-4 transition-all uppercase tracking-wide rounded-[10px]"
+                className="bg-transparent hover:bg-white/10 border-2 border-white text-white font-bold text-lg px-8 py-4 transition-all uppercase tracking-wide rounded-[8px]"
               >
                 Conhecer Produtos
               </button>
