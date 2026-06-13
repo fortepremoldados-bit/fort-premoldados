@@ -18,8 +18,8 @@ export default function Home() {
       <Products />
       <CalculatorSection />
       <Industry />
-      <ESG />
       <Differentials />
+      <ESG />
       <Audience />
       <Knowledge />
       <Contact />
