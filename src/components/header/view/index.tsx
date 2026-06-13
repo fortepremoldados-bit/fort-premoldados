@@ -90,28 +90,28 @@ export const Header = () => {
             Produtos
           </button>
 
-          <button onClick={() => scrollTo('diferenciais')} className="text-left py-2 border-b border-gray-100">
+          {/* <button onClick={() => scrollTo('diferenciais')} className="text-left py-2 border-b border-gray-100">
             Diferenciais
-          </button>
+          </button> */}
 
           <button onClick={() => scrollTo('sobre')} className="text-left py-2 border-b border-gray-100">
-            A Indústria
+            Empresa
           </button>
 
           <button onClick={() => scrollTo('atuacao')} className="text-left py-2 border-b border-gray-100">
             Atuação
           </button>
 
-          <button onClick={() => scrollTo('calculadora')} className="text-left py-2 border-b border-gray-100">
-            Calculadora
-          </button>
-
           <button onClick={() => scrollTo('sustentabilidade')} className="text-left py-2 border-b border-gray-100">
-            Sustentabilidade ESG
+            ESG
           </button>
 
           <button onClick={() => scrollTo('conhecimento')} className="text-left py-2 border-b border-gray-100">
-            Expertise
+            Blog
+          </button>
+
+          <button onClick={() => scrollTo('calculadora')} className="text-left py-2 border-b border-gray-100">
+            Calculadora
           </button>
 
           <button onClick={() => scrollTo('contato')} className="text-left py-2 border-b border-gray-100">

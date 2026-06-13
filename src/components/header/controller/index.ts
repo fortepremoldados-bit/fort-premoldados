@@ -5,11 +5,11 @@ import { useUIStore } from '@/store/uiStore';
 
 export const menuItems = [
   { id: 'produtos', label: 'Produtos' },
-  { id: 'diferenciais', label: 'Diferenciais' },
-  { id: 'sobre', label: 'A Indústria' },
+  // { id: 'diferenciais', label: 'Diferenciais' },
+  { id: 'sobre', label: 'Empresa' },
   { id: 'atuacao', label: 'Atuação' },
   { id: 'sustentabilidade', label: 'ESG' },
-  { id: 'conhecimento', label: 'Expertise' },
+  { id: 'conhecimento', label: 'Blog' },
 ];
 
 export const useHeaderController = () => {
