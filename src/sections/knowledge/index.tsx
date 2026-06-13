@@ -32,7 +32,7 @@ export const Knowledge = () => {
               <BookOpen size={20} /> Base de Conhecimento
             </h3>
             <h2 className="text-4xl md:text-5xl font-black text-black uppercase">
-              Engenharia Viária
+              Blog
             </h2>
           </div>
           <p className="text-gray-600 max-w-md mt-4 md:mt-0 md:text-right text-lg">
