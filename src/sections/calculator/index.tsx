@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Calculator, Copy, RotateCcw, Check, Info, Save, Trash2, Send, X, Mail, MessageCircle, ShoppingCart } from 'lucide-react';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { PISOS_DATA, BrandConfig } from '../../constants/data';
 import { useCalculator } from '../../hooks/useCalculator';
 import { useUIStore } from '../../store/uiStore';
@@ -234,16 +234,12 @@ export const CalculatorSection = () => {
               </div>
               
               {!calcResult ? (
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.6 }}
+                <div 
                   className="text-center py-12 px-4 text-gray-400"
                 >
                   <Calculator size={48} className="mx-auto mb-4 opacity-30" />
                   <p className="text-sm md:text-base">Preencha os dados do projeto ao lado e clique em calcular.</p>
-                </motion.div>
+                </div>
               ) : (
                 <div className="space-y-6 animate-in fade-in duration-500">
                   <div className="bg-[#4E524F]/40 p-5 border-l-4 border-[#008446] rounded-r-[10px]">

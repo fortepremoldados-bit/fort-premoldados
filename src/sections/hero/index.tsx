@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { BrandConfig } from '../../constants/data';
 import { useUIStore } from '../../store/uiStore';
 
@@ -29,7 +29,7 @@ export const Hero = () => {
             poster="/capa3.jpeg" 
             className="w-full h-full object-cover object-center opacity-80"
           >
-            <source src="/video-capa.mp4" type="video/mp4" />
+            <source src="/CapaWebM.webm" type="video/webm" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
           <div className="absolute inset-0 opacity-[0.10] pointer-events-none" style={{ 
@@ -40,35 +40,37 @@ export const Hero = () => {
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <motion.div 
+          {/* <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-3xl mt-[10vh]"
-          >
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6 uppercase">
-              Pré-moldados para <span className="text-[#008446]">Infraestrutura</span>.
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 font-normal mb-10 leading-relaxed max-w-2xl">
-              Pisos intertravados e meios-fios de alta resistência para loteamentos, rodovias e obras públicas.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a 
-                href={BrandConfig.whatsapp.url} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-[#008446] hover:bg-[#1C9C69] text-white font-bold text-lg px-8 py-4 flex items-center justify-center gap-3 transition-all transform hover:scale-105 active:scale-95 rounded-[8px]"
-              >
-                Solicitar Orçamento <ArrowRight size={20} />
-              </a>
-              <button 
-                onClick={() => scrollTo('produtos')}
-                className="bg-transparent hover:bg-white/10 border-2 border-white text-white font-bold text-lg px-8 py-4 transition-all uppercase tracking-wide rounded-[8px]"
-              >
-                Conhecer Produtos
-              </button>
+            transition={{ duration: 0.8, delay: 0.2 }} */}
+            <div
+              className="max-w-3xl mt-[10vh]"
+            >
+              <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6 uppercase">
+                Pré-moldados para <span className="text-[#008446]">Infraestrutura</span>.
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-300 font-normal mb-10 leading-relaxed max-w-2xl">
+                Pisos intertravados e meios-fios de alta resistência para loteamentos, rodovias e obras públicas.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a 
+                  href={BrandConfig.whatsapp.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-[#008446] hover:bg-[#1C9C69] text-white font-bold text-lg px-8 py-4 flex items-center justify-center gap-3 transition-all transform hover:scale-105 active:scale-95 rounded-[8px]"
+                >
+                  Solicitar Orçamento <ArrowRight size={20} />
+                </a>
+                <button 
+                  onClick={() => scrollTo('produtos')}
+                  className="bg-transparent hover:bg-white/10 border-2 border-white text-white font-bold text-lg px-8 py-4 transition-all uppercase tracking-wide rounded-[8px]"
+                >
+                  Conhecer Produtos
+                </button>
+              </div>
             </div>
-          </motion.div>
+          {/* </motion.div> */}
         </div>
       </section>
     </>
