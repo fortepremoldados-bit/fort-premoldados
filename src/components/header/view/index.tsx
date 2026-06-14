@@ -5,8 +5,6 @@ import { Menu, X, Calculator } from 'lucide-react';
 import { BrandConfig } from '@/constants/data';
 import { useHeaderController } from '../controller';
 import { Logo } from '../logo';
-// import { Logo } from './Logo';
-// import { useHeaderController } from './HeaderController';
 
 export const Header = () => {
   const {
