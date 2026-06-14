@@ -46,10 +46,6 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-3xl mt-[10vh]"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#4E524F]/50 border border-[#788785] text-white text-sm font-bold uppercase tracking-wider mb-6 backdrop-blur-sm">
-              <span className="w-2 h-2 bg-[#008446] rounded-full"></span>
-              Padrão Técnico Superior
-            </div>
             <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6 uppercase">
               Pré-moldados para <span className="text-[#008446]">Infraestrutura</span>.
             </h1>

@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 export const Audience = () => {
   return (
-    <section id="atuacao" className="py-24 bg-white border-b border-gray-200">
+    <section id="atuacao" className="py-24 bg-[#F3F4F6] border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
