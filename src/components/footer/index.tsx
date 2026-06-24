@@ -72,7 +72,7 @@ export const Footer = () => (
                 size={18}
                 className="text-[#008446] shrink-0"
               />
-              <span>(21) 2621-6909</span>
+              <span>(21) 99800-5005</span>
             </li>
 
             <li className="flex items-center gap-3">

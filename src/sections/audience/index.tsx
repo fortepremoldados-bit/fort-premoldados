@@ -9,7 +9,6 @@ export const Audience = () => {
       id="atuacao"
       className="relative py-24 border-b border-gray-200 overflow-hidden"
     >
-      {/* Imagem de fundo */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -17,10 +16,8 @@ export const Audience = () => {
         }}
       />
 
-      {/* Camada branca para suavizar a imagem */}
       <div className="absolute inset-0 bg-white/65" />
 
-      {/* Conteúdo */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-black uppercase mb-4">
@@ -33,7 +30,7 @@ export const Audience = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Card 1 */}
+
           <div className="bg-white/95 backdrop-blur-sm p-6 border border-gray-100 border-t-4 border-t-[#008446] shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col items-center text-center">
             <div className="bg-[#008446]/10 p-4 rounded-full text-[#008446] group-hover:scale-110 transition-transform mb-4">
               <Landmark size={28} />
@@ -48,7 +45,6 @@ export const Audience = () => {
             </p>
           </div>
 
-          {/* Card 2 */}
           <div className="bg-white/95 backdrop-blur-sm p-6 border border-gray-100 border-t-4 border-t-[#008446] shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col items-center text-center">
             <div className="bg-[#008446]/10 p-4 rounded-full text-[#008446] group-hover:scale-110 transition-transform mb-4">
               <HardHat size={28} />
@@ -63,7 +59,7 @@ export const Audience = () => {
             </p>
           </div>
 
-          {/* Card 3 */}
+
           <div className="bg-white/95 backdrop-blur-sm p-6 border border-gray-100 border-t-4 border-t-[#008446] shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col items-center text-center">
             <div className="bg-[#008446]/10 p-4 rounded-full text-[#008446] group-hover:scale-110 transition-transform mb-4">
               <Factory size={28} />
@@ -78,7 +74,6 @@ export const Audience = () => {
             </p>
           </div>
 
-          {/* Card 4 */}
           <div className="bg-white/95 backdrop-blur-sm p-6 border border-gray-100 border-t-4 border-t-[#008446] shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col items-center text-center">
             <div className="bg-[#008446]/10 p-4 rounded-full text-[#008446] group-hover:scale-110 transition-transform mb-4">
               <Home size={28} />

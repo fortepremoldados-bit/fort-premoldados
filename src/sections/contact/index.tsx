@@ -11,13 +11,6 @@ export const Contact = () => {
   const [produto, setProduto] = useState('Piso Intertravado');
 
 
-  
-  // useEffect(() => {
-  //   if (quoteDetails) {
-  //     setDetalhes(quoteDetails);
-  //     setProduto('Múltiplos Produtos');
-  //   }
-  // }, [quoteDetails]);
 
   /* eslint-disable react-hooks/set-state-in-effect */
 
@@ -30,23 +23,88 @@ export const Contact = () => {
 
 /* eslint-enable react-hooks/set-state-in-effect */
 
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  // const handleFormSubmit = async (
+  //   e: React.FormEvent<HTMLFormElement>
+  // ) => {
+  //   e.preventDefault();
+
+  //   const formData = new FormData(e.currentTarget);
+
+  //   const payload = {
+  //     nome: formData.get('nome'),
+  //     empresa: formData.get('empresa'),
+  //     telefone: formData.get('telefone'),
+  //     produto,
+  //     detalhes,
+  //   };
+
+  //   const response = await fetch('/api/contact', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(payload),
+  //   });
+
+  //   if (response.ok) {
+  //     alert('Solicitação enviada com sucesso!');
+  //     e.currentTarget.reset();
+  //     setDetalhes('');
+  //     setQuoteDetails('');
+  //   } else {
+  //     alert('Erro ao enviar solicitação.');
+  //   }
+  // };
+
+  const handleFormSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const nome = formData.get('nome');
-    const empresa = formData.get('empresa');
-    const telefone = formData.get('telefone');
 
-    const subject = encodeURIComponent(`Cotação Formal - ${empresa || nome}`);
-    const body = encodeURIComponent(`Olá, equipe Forte Pré-Moldados.\n\nGostaria de solicitar uma cotação formal com as seguintes informações:\n\nDados do Contato:\n- Nome: ${nome}\n- Empresa/Prefeitura: ${empresa}\n- Telefone: ${telefone}\n- Produto de Interesse: ${produto}\n\nDetalhes do Projeto / Volume Estimado:\n${detalhes}\n\nAguardo retorno e me coloco à disposição. Caso haja projetos ou editais, eles seguem em anexo neste e-mail.`);
+    const form = e.currentTarget;
 
-    window.location.href = `mailto:carlos@fortepremoldados.com.br?subject=${subject}&body=${body}`;
-    setQuoteDetails(''); // Limpa após usar
+    try {
+      const formData = new FormData(form);
+
+      const payload = {
+        nome: formData.get('nome'),
+        empresa: formData.get('empresa'),
+        telefone: formData.get('telefone'),
+        produto,
+        detalhes,
+      };
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Erro ao enviar solicitação.');
+      }
+
+      alert('Solicitação enviada com sucesso!');
+
+      form.reset();
+
+      setDetalhes('');
+      setProduto('Piso Intertravado');
+      setQuoteDetails('');
+
+    } catch (error) {
+      console.error(error);
+      alert('Erro ao enviar solicitação. Tente novamente.');
+    }
   };
 
   return (
     <section id="contato" className="py-24 bg-white relative border-t border-gray-200 overflow-hidden">
-      {/* Background Image matching Differentials section */}
+
       <div className="absolute inset-0 z-0">
         <img 
           src="/fundo.jpeg" 
@@ -91,8 +149,11 @@ export const Contact = () => {
                   </div>
                   <div>
                     <h5 className="font-bold uppercase tracking-widest text-sm mb-1 text-black">E-mail Comercial</h5>
-                    <a href="mailto:carlos@fortepremoldados.com.br" className="text-black text-lg hover:text-[#008446] font-bold transition-colors">
-                      carlos@fortepremoldados.com.br
+                    <a
+                      href="mailto:empresa.forte.premoldados@gmail.com"
+                      className="text-black text-lg hover:text-[#008446] font-bold transition-colors"
+                    >
+                      empresa.forte.premoldados@gmail.com
                     </a>
                   </div>
                 </div>
@@ -149,7 +210,7 @@ export const Contact = () => {
                 <Mail size={20} /> Enviar Pedido por E-mail
               </button>
               <p className="text-xs text-gray-400 text-center mt-3 font-medium">
-                * Seu cliente de e-mail padrão será aberto com os dados.
+                * Sua solicitação será enviada diretamente para nossa equipe comercial.
               </p>
             </form>
           </div>
