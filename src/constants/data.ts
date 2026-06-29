@@ -119,7 +119,7 @@ export const ARTICLES: Article[] = [
     ]
   },
   {
-    image: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?auto=format&fit=crop&q=80&w=600",
+    image: "/artigo4.jpeg",
     category: "Drenagem Urbana",
     categoryBg: "bg-[#008446]",
     title: "Piso Intertravado Permeável: Drenagem Urbana e Sustentabilidade",
@@ -132,7 +132,7 @@ export const ARTICLES: Article[] = [
     ]
   },
   {
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600",
+    image: "/artigo5.jpeg",
     category: "Viabilidade Econômica",
     categoryBg: "bg-[#788785]",
     title: "Piso Intertravado ou Asfalto? Comparativo de Custo e Durabilidade",
@@ -145,7 +145,7 @@ export const ARTICLES: Article[] = [
     ]
   },
   {
-    image: "https://images.unsplash.com/photo-1517646287270-a569ca4542bb?auto=format&fit=crop&q=80&w=600",
+    image: "/artigo6.jpeg",
     category: "Produtos",
     categoryBg: "bg-black",
     title: "Tipos de Guias de Concreto (Meio-Fio) no Brasil",
@@ -162,7 +162,7 @@ export const ARTICLES: Article[] = [
     ]
   },
   {
-    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=600",
+    image: "/artigo7.jpeg",
     category: "Especificações",
     categoryBg: "bg-[#788785]",
     title: "Modelos de Piso Intertravado (Paver): Formatos e Aplicações",

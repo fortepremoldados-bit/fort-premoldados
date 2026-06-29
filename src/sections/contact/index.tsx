@@ -150,10 +150,10 @@ export const Contact = () => {
                   <div>
                     <h5 className="font-bold uppercase tracking-widest text-sm mb-1 text-black">E-mail Comercial</h5>
                     <a
-                      href="mailto:empresa.forte.premoldados@gmail.com"
+                      href="mailto:atendimento@fortepre.com.br"
                       className="text-black text-lg hover:text-[#008446] font-bold transition-colors"
                     >
-                      empresa.forte.premoldados@gmail.com
+                      atendimento@fortepre.com.br
                     </a>
                   </div>
                 </div>

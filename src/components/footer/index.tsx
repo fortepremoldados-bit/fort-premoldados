@@ -80,7 +80,7 @@ export const Footer = () => (
                 size={18}
                 className="text-[#008446] shrink-0"
               />
-              <span>diretoria@alamotec.com.br</span>
+              <span>atendimento@fortepre.com.br</span>
             </li>
           </ul>
         </div>
