@@ -4,6 +4,7 @@ import "./globals.css";
 import { Footer } from "@/components/footer";
 import { SmoothScrollProvider } from "@/components/scroll";
 import Header from "@/components/header";
+import CookieConsent from "@/components/cookies";
 
 
 const barlow = Barlow({ 
@@ -34,6 +35,7 @@ export default function RootLayout({
           <Header />
           <main className="min-h-screen">
             {children}
+            <CookieConsent />
           </main>
           <Footer />
         </SmoothScrollProvider>
